@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  Second-hand books
+//
+//  Created by yesdgq on 2019/3/17.
+//  Copyright © 2019 Yufei_Li. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "SHB_Marco.h"
+
+#import "Masonry.h"
+#import "MJExtension.h" // 模型转换
+#import "FileManageCommon.h" // 文件路径管理
+#import "DONG_AlertShowTool.h"
+#import "UIWindow+Addition.h"
+#import "UIColor+Addition.h"
+#import "SHB_UserInfoManager.h"
+#import "NSDate+Addition.h"
+#import "SHB_CoreToolCenter.h"
+
+
+
+#endif /* PrefixHeader_pch */
