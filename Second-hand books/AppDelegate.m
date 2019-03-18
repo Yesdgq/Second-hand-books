@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
+#import "SHB_LonginVC.h"
+#import "SHB_BaseNavigationController.h"
+#import "DONG_DataBaseManager.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +28,8 @@
     
     // 5.启动设置
     [self setLaunchView];
+    
+    [DataBaseManager createUserTable];
     
     
     return YES;
@@ -69,11 +74,13 @@
 //    if (UserInfoManager.isLogin) { // 已登录
 //
 //
-//        // 导航控制器
-//        DTHBaseNavigationController *nav = [[DTHBaseNavigationController alloc] initWithRootViewController:sliderVC];
-//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        self.window.rootViewController = nav;
-//        [self.window makeKeyAndVisible];
+    
+        SHB_LonginVC *loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SHB_LonginVC"];
+        // 导航控制器
+        SHB_BaseNavigationController *nav = [[SHB_BaseNavigationController alloc] initWithRootViewController:loginVC];
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController = nav;
+        [self.window makeKeyAndVisible];
 //
 //    } else { // 未登录
 //
