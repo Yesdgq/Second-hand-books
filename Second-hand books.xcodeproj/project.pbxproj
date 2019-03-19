@@ -37,6 +37,8 @@
 		11DB9580223E893E000CB7AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DB957E223E893E000CB7AE /* Main.storyboard */; };
 		11DB9582223E893F000CB7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DB9581223E893F000CB7AE /* Assets.xcassets */; };
 		11DB9588223E893F000CB7AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DB9587223E893F000CB7AE /* main.m */; };
+		11E4DA25224093F100B21FA9 /* SHB_DiscoveryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E4DA24224093F000B21FA9 /* SHB_DiscoveryVC.m */; };
+		11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E4DA292240945200B21FA9 /* UIViewController+Addition.m */; };
 		3A09A01942BB4F991059D466 /* Pods_Second_hand_books.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81D6991A0127141F27430 /* Pods_Second_hand_books.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,10 @@
 		11DB9581223E893F000CB7AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11DB9586223E893F000CB7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11DB9587223E893F000CB7AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		11E4DA23224093F000B21FA9 /* SHB_DiscoveryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHB_DiscoveryVC.h; sourceTree = "<group>"; };
+		11E4DA24224093F000B21FA9 /* SHB_DiscoveryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHB_DiscoveryVC.m; sourceTree = "<group>"; };
+		11E4DA292240945200B21FA9 /* UIViewController+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Addition.m"; sourceTree = "<group>"; };
+		11E4DA2A2240945200B21FA9 /* UIViewController+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Addition.h"; sourceTree = "<group>"; };
 		89F81D6991A0127141F27430 /* Pods_Second_hand_books.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Second_hand_books.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5EE0169AD5B04159447F296 /* Pods-Second-hand books.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-hand books.release.xcconfig"; path = "Pods/Target Support Files/Pods-Second-hand books/Pods-Second-hand books.release.xcconfig"; sourceTree = "<group>"; };
 		DB1DF2145E7D541DBD042392 /* Pods-Second-hand books.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Second-hand books.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Second-hand books/Pods-Second-hand books.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,7 +134,7 @@
 				118282AF223FD55E007B974B /* Login */,
 				11270A4B223EA6DF001E4A64 /* Home */,
 				11270A49223EA6D9001E4A64 /* MyGoods */,
-				11270A48223EA6CA001E4A64 /* New Group */,
+				11E4DA22224093F000B21FA9 /* Discovery */,
 				11270A4A223EA6DC001E4A64 /* Mine */,
 			);
 			path = Class;
@@ -158,6 +164,8 @@
 				11270A0B223E90CB001E4A64 /* DONG_AlertShowTool.m */,
 				11270A0D223E910A001E4A64 /* UIWindow+Addition.h */,
 				11270A0E223E910A001E4A64 /* UIWindow+Addition.m */,
+				11E4DA2A2240945200B21FA9 /* UIViewController+Addition.h */,
+				11E4DA292240945200B21FA9 /* UIViewController+Addition.m */,
 				11270A29223E9861001E4A64 /* NSArray+Log.h */,
 				11270A25223E9861001E4A64 /* NSArray+Log.m */,
 				11270A24223E9860001E4A64 /* NSData+Addition.h */,
@@ -242,13 +250,6 @@
 				11DB957E223E893E000CB7AE /* Main.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		11270A48223EA6CA001E4A64 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		11270A49223EA6D9001E4A64 /* MyGoods */ = {
@@ -357,6 +358,15 @@
 				11270A02223E8EA6001E4A64 /* PrefixHeader.pch */,
 			);
 			path = "Second-hand books";
+			sourceTree = "<group>";
+		};
+		11E4DA22224093F000B21FA9 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				11E4DA23224093F000B21FA9 /* SHB_DiscoveryVC.h */,
+				11E4DA24224093F000B21FA9 /* SHB_DiscoveryVC.m */,
+			);
+			path = Discovery;
 			sourceTree = "<group>";
 		};
 		6FD49C73A6988251ABCCD5D3 /* Pods */ = {
@@ -510,6 +520,7 @@
 				11270A2F223E9861001E4A64 /* NSArray+Log.m in Sources */,
 				11270A2C223E9861001E4A64 /* NSDictionary+Log.m in Sources */,
 				11270A2D223E9861001E4A64 /* NSDate+Addition.m in Sources */,
+				11E4DA25224093F100B21FA9 /* SHB_DiscoveryVC.m in Sources */,
 				115EE774223FA4CE000FC84A /* SHB_UserModel.m in Sources */,
 				118282C3223FF835007B974B /* SHB_MineVC.m in Sources */,
 				11270A3C223E998D001E4A64 /* NSDate+Addition.m in Sources */,
@@ -533,6 +544,7 @@
 				11270A38223E98DD001E4A64 /* GTMBase64.m in Sources */,
 				118282B2223FD5A1007B974B /* SHB_LonginVC.m in Sources */,
 				11270A30223E9861001E4A64 /* NSData+Addition.m in Sources */,
+				11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */,
 				11270A2E223E9861001E4A64 /* NSString+Dong.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +685,7 @@
 				DEVELOPMENT_TEAM = J5EPCRFAR9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Second-hand books/PrefixHeader.pch";
 				INFOPLIST_FILE = "Second-hand books/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,6 +706,7 @@
 				DEVELOPMENT_TEAM = J5EPCRFAR9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Second-hand books/PrefixHeader.pch";
 				INFOPLIST_FILE = "Second-hand books/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTF;
+@property (weak, nonatomic) IBOutlet UITextField *mobilePhoneTF;
 
 
 @end
@@ -31,6 +32,11 @@
 // 提交注册
 - (IBAction)registerAccount:(id)sender {
     
+    if (self.nickNameTF.text.length == 0) {
+        ShowMessage(@"昵称不能为空");
+        return;
+    }
+    
     if (![self.passwordTF.text isEqualToString:self.confirmPasswordTF.text]) {
         ShowMessage(@"两次输入的密码不一致");
         return;
@@ -40,6 +46,7 @@
     userModel.nickName = self.nickNameTF.text;
     userModel.name = self.nameTF.text;
     userModel.password = self.passwordTF.text;
+    userModel.mobilePhone = self.mobilePhoneTF.text;
     
     BOOL success = [DataBaseManager insertUser:userModel];
     

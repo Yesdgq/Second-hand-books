@@ -1,5 +1,5 @@
 //
-//  SHB_MineVC.h
+//  SHB_DiscoveryVC.h
 //  Second-hand books
 //
 //  Created by yesdgq on 2019/3/19.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SHB_MineVC : UIViewController
-
-
+@interface SHB_DiscoveryVC : UIViewController
 
 @end
 
