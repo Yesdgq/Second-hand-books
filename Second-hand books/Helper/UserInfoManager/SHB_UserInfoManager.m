@@ -37,11 +37,10 @@
  *  清空用户信息
  */
 - (void)removeUserInfo {
-    UserInfoManager.isLogin = NO; // 登出
     [DONG_UserDefaults removeObjectForKey:k_for_name]; //
     [DONG_UserDefaults removeObjectForKey:k_for_mobilePhone]; //
     [DONG_UserDefaults removeObjectForKey:k_for_token]; // 
-    [DONG_UserDefaults removeObjectForKey:k_for_nickname]; //
+    //[DONG_UserDefaults removeObjectForKey:k_for_nickname]; //
     [DONG_UserDefaults removeObjectForKey:k_for_avatar]; //
     [DONG_UserDefaults removeObjectForKey:k_for_personalProfile]; //
     

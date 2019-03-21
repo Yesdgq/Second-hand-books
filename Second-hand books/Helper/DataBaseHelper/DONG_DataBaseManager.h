@@ -39,7 +39,10 @@
 - (void)createUserTable;
 
 - (BOOL)insertUser:(SHB_UserModel *)userModel;
-// 查询用户是否存在
-- (BOOL)queryUserIsExisted:(SHB_UserModel *)userModel;
+
+// 登录查询 —— 用昵称和密码进行校验
+- (BOOL)whetherLoginSuccessWithUser:(SHB_UserModel *)userModel;
+// 查询用户在不在 —— 使用nickName查询
+- (BOOL)queryUserIsExistedWithNickName:(SHB_UserModel *)userModel;
 
 @end

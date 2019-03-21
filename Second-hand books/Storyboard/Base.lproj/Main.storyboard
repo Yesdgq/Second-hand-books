@@ -32,14 +32,14 @@
                                     <constraint firstAttribute="width" constant="20" id="kcE-8t-Oan"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nr3-8S-vl6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nr3-8S-vl6">
                                 <rect key="frame" x="100" y="305" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wHN-UP-9hC"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="nickname"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Password" translatesAutoresizingMaskIntoConstraints="NO" id="5PZ-dQ-9lv">
                                 <rect key="frame" x="70" y="391" width="20" height="20"/>
@@ -48,14 +48,14 @@
                                     <constraint firstAttribute="width" constant="20" id="pLm-H7-CfG"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yet-ZJ-Aj9">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yet-ZJ-Aj9">
                                 <rect key="frame" x="100" y="386" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="c0L-EL-2O2"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Azm-gD-HpV">
                                 <rect key="frame" x="40" y="340" width="295" height="1"/>
@@ -160,14 +160,14 @@
                                     <constraint firstAttribute="height" constant="20" id="5SO-DE-o3A"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBO-85-rYh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zBO-85-rYh">
                                 <rect key="frame" x="100" y="105" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ige-lz-1h2"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Account" translatesAutoresizingMaskIntoConstraints="NO" id="0qh-N8-0Lh">
                                 <rect key="frame" x="70" y="183" width="20" height="20"/>
@@ -176,7 +176,7 @@
                                     <constraint firstAttribute="height" constant="20" id="i2V-xa-DGq"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入名称" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0z8-30-9Xu">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入名称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0z8-30-9Xu">
                                 <rect key="frame" x="100" y="178" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9uy-GW-dfo"/>
@@ -213,14 +213,14 @@
                                     <constraint firstAttribute="width" constant="20" id="scg-gi-bdI"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HoF-zi-zxG">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HoF-zi-zxG">
                                 <rect key="frame" x="100" y="324" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PuW-fv-Z0M"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Password" translatesAutoresizingMaskIntoConstraints="NO" id="QGA-vp-BaR">
                                 <rect key="frame" x="70" y="402" width="20" height="20"/>
@@ -229,14 +229,14 @@
                                     <constraint firstAttribute="width" constant="20" id="wtB-fn-KPK"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kz1-sG-CYX">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kz1-sG-CYX">
                                 <rect key="frame" x="100" y="397" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="O8c-9c-2ZU"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-cj-noI">
                                 <rect key="frame" x="40" y="286" width="295" height="1"/>
@@ -252,14 +252,14 @@
                                     <constraint firstAttribute="height" constant="20" id="ymp-Bp-FTl"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPX-gD-b0P">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JPX-gD-b0P">
                                 <rect key="frame" x="100" y="251" width="205" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AFw-kU-nNT"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h08-Y4-Teq">
                                 <rect key="frame" x="40" y="359" width="295" height="1"/>

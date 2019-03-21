@@ -25,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"登录";
+    self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
+    
+    self.nickNameTF.text = UserInfoManager.nickname;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,21 +66,23 @@
     userModel.nickName = self.nickNameTF.text;
     userModel.password = self.passwordTF.text;
     
-    BOOL hasUser = [DataBaseManager queryUserIsExisted:userModel];
-    
     [SVProgressHUD showWithStatus:@"登录中..."];
     
-    // 2秒后执行以下内容  模拟登陆
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    // 3秒后执行以下内容  模拟登陆
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         DismissHud();
         
-        if (hasUser) {
+        // 用昵称和密码去数据库查询  返回YES登录成功  返回NO登录失败
+        BOOL success = [DataBaseManager whetherLoginSuccessWithUser:userModel];
+        
+        if (success) {
             
             ShowMessage(@"登录成功");
             UserInfoManager.isLogin = YES; // 存储登陆状态
             UserInfoManager.name = userModel.name;
             UserInfoManager.nickname = userModel.nickName;
+            // 初始化Tabbar控件
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             [appDelegate initializeTabbar];
             

@@ -198,26 +198,10 @@
     return YES;
 }
 
-static BOOL firstItemSelected = NO;
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     
-    if (tabBarController.selectedIndex == 0) {
-        
-        if (firstItemSelected) {
-            
-            tabBarController.selectedViewController.tabBarItem.selectedImage = [[UIImage imageNamed:@"NumPad_Hide"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            
-        } else {
-            
-            tabBarController.selectedViewController.tabBarItem.selectedImage = [[UIImage imageNamed:@"NumPad_Dispay"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        }
-        
-        firstItemSelected = !firstItemSelected;
-        
-    } else {
-        firstItemSelected = NO;
-    }
+
     
 }
 
@@ -230,8 +214,6 @@ static BOOL firstItemSelected = NO;
 //    [DONG_NotificationCenter postNotificationName:kTabBarClicked object:message];
     
     DONG_Log(@"=====================");
-    
-    
     
     
     
