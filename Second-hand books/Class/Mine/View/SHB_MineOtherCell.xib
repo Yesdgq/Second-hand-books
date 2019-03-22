@@ -56,6 +56,10 @@
                 <constraint firstItem="bzo-gW-Ync" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="zuE-g4-J07"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="leftIV" destination="bzo-gW-Ync" id="8MO-7U-TXB"/>
+                <outlet property="titleLbl" destination="TZp-rf-ZKR" id="EJI-fC-rOo"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="118.74062968515743"/>
         </tableViewCell>
     </objects>

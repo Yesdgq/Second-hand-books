@@ -11,6 +11,7 @@
 #import "SHB_BaseNavigationController.h"
 #import "SHB_MineInfoCell.h"
 #import "SHB_MineOtherCell.h"
+#import "SHB_MineInfoVC.h"
 
 @interface SHB_MineVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -103,13 +104,13 @@
     
     if (indexPath.section == 0) {
         SHB_MineInfoCell *cell = [SHB_MineInfoCell cellWithTableView:tableView];
-//        [cell setModel:nil index:indexPath];
+
         return cell;
         
     } else {
         
         SHB_MineOtherCell *cell = [SHB_MineOtherCell cellWithTableView:tableView];
-//        [cell setModel:nil index:indexPath];
+        [cell setModel:nil index:indexPath];
         return cell;
     }
     
@@ -147,6 +148,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
     
+    if (indexPath.section == 0) {
+        
+        SHB_MineInfoVC *myInfoVC = [[SHB_MineInfoVC alloc] init];
+        [self.navigationController pushViewController:myInfoVC animated:YES];
+        
+    } else if (indexPath.section == 1) {
+        
+        if (indexPath.row == 0) {
+            
+        } else if (indexPath.row ==1) {
+            ShowMessage(@"当前已是最新版本");
+        }
+    }
 }
 
 

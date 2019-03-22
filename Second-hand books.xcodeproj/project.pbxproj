@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110861B922453479002ED5A9 /* SHB_MineInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 110861B822453479002ED5A9 /* SHB_MineInfoVC.m */; };
+		110861BE2245366F002ED5A9 /* SHB_MineInfoSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 110861BC2245366F002ED5A9 /* SHB_MineInfoSection1Cell.m */; };
+		110861BF2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110861BD2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib */; };
+		110861C322453682002ED5A9 /* SHB_MineInfoSection2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 110861C122453682002ED5A9 /* SHB_MineInfoSection2Cell.m */; };
+		110861C422453682002ED5A9 /* SHB_MineInfoSection2Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110861C222453682002ED5A9 /* SHB_MineInfoSection2Cell.xib */; };
+		110861C822453693002ED5A9 /* SHB_MineInfoSection0Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 110861C622453693002ED5A9 /* SHB_MineInfoSection0Cell.m */; };
+		110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110861C722453693002ED5A9 /* SHB_MineInfoSection0Cell.xib */; };
 		11270A06223E908B001E4A64 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A05223E908B001E4A64 /* UIColor+Addition.m */; };
 		11270A09223E90B1001E4A64 /* FileManageCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A08223E90B1001E4A64 /* FileManageCommon.m */; };
 		11270A0C223E90CB001E4A64 /* DONG_AlertShowTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A0B223E90CB001E4A64 /* DONG_AlertShowTool.m */; };
@@ -51,6 +58,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110861B722453479002ED5A9 /* SHB_MineInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineInfoVC.h; sourceTree = "<group>"; };
+		110861B822453479002ED5A9 /* SHB_MineInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MineInfoVC.m; sourceTree = "<group>"; };
+		110861BB2245366F002ED5A9 /* SHB_MineInfoSection1Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineInfoSection1Cell.h; sourceTree = "<group>"; };
+		110861BC2245366F002ED5A9 /* SHB_MineInfoSection1Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MineInfoSection1Cell.m; sourceTree = "<group>"; };
+		110861BD2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineInfoSection1Cell.xib; sourceTree = "<group>"; };
+		110861C022453682002ED5A9 /* SHB_MineInfoSection2Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineInfoSection2Cell.h; sourceTree = "<group>"; };
+		110861C122453682002ED5A9 /* SHB_MineInfoSection2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MineInfoSection2Cell.m; sourceTree = "<group>"; };
+		110861C222453682002ED5A9 /* SHB_MineInfoSection2Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineInfoSection2Cell.xib; sourceTree = "<group>"; };
+		110861C522453693002ED5A9 /* SHB_MineInfoSection0Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineInfoSection0Cell.h; sourceTree = "<group>"; };
+		110861C622453693002ED5A9 /* SHB_MineInfoSection0Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MineInfoSection0Cell.m; sourceTree = "<group>"; };
+		110861C722453693002ED5A9 /* SHB_MineInfoSection0Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineInfoSection0Cell.xib; sourceTree = "<group>"; };
 		11270A02223E8EA6001E4A64 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		11270A03223E8EF9001E4A64 /* SHB_Marco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_Marco.h; sourceTree = "<group>"; };
 		11270A04223E908B001E4A64 /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
@@ -146,6 +164,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110861B5224533AD002ED5A9 /* About */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		110861B622453415002ED5A9 /* MineInfo */ = {
+			isa = PBXGroup;
+			children = (
+				110861B722453479002ED5A9 /* SHB_MineInfoVC.h */,
+				110861B822453479002ED5A9 /* SHB_MineInfoVC.m */,
+				110861BA2245360C002ED5A9 /* View */,
+			);
+			path = MineInfo;
+			sourceTree = "<group>";
+		};
+		110861BA2245360C002ED5A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				110861C522453693002ED5A9 /* SHB_MineInfoSection0Cell.h */,
+				110861C622453693002ED5A9 /* SHB_MineInfoSection0Cell.m */,
+				110861C722453693002ED5A9 /* SHB_MineInfoSection0Cell.xib */,
+				110861BB2245366F002ED5A9 /* SHB_MineInfoSection1Cell.h */,
+				110861BC2245366F002ED5A9 /* SHB_MineInfoSection1Cell.m */,
+				110861BD2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib */,
+				110861C022453682002ED5A9 /* SHB_MineInfoSection2Cell.h */,
+				110861C122453682002ED5A9 /* SHB_MineInfoSection2Cell.m */,
+				110861C222453682002ED5A9 /* SHB_MineInfoSection2Cell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		112709FD223E8E22001E4A64 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +338,8 @@
 				118282C1223FF835007B974B /* SHB_MineVC.h */,
 				118282C2223FF835007B974B /* SHB_MineVC.m */,
 				1142BFA82243DD6A00AAFEC6 /* View */,
+				110861B622453415002ED5A9 /* MineInfo */,
+				110861B5224533AD002ED5A9 /* About */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -512,7 +565,10 @@
 				11DB9582223E893F000CB7AE /* Assets.xcassets in Resources */,
 				11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */,
 				1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */,
+				110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */,
 				11D730122241459E002475A7 /* SHB_MyGoodsCell.xib in Resources */,
+				110861BF2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib in Resources */,
+				110861C422453682002ED5A9 /* SHB_MineInfoSection2Cell.xib in Resources */,
 				1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */,
 				11DB9580223E893E000CB7AE /* Main.storyboard in Resources */,
 			);
@@ -609,11 +665,15 @@
 				11270A39223E98DD001E4A64 /* DesEncrypt.m in Sources */,
 				118282B8223FE83F007B974B /* SHB_RegisterVC.m in Sources */,
 				115EE771223FA404000FC84A /* SHB_GoodsModel.m in Sources */,
+				110861C822453693002ED5A9 /* SHB_MineInfoSection0Cell.m in Sources */,
 				11270A1E223E983F001E4A64 /* UIImage+GIFImage.m in Sources */,
 				11270A1B223E979C001E4A64 /* SHB_CoreToolCenter.m in Sources */,
 				118282C0223FF81D007B974B /* SHB_MyGoodsVC.m in Sources */,
+				110861BE2245366F002ED5A9 /* SHB_MineInfoSection1Cell.m in Sources */,
+				110861C322453682002ED5A9 /* SHB_MineInfoSection2Cell.m in Sources */,
 				11270A38223E98DD001E4A64 /* GTMBase64.m in Sources */,
 				118282B2223FD5A1007B974B /* SHB_LonginVC.m in Sources */,
+				110861B922453479002ED5A9 /* SHB_MineInfoVC.m in Sources */,
 				11270A30223E9861001E4A64 /* NSData+Addition.m in Sources */,
 				11D7300422413C97002475A7 /* SHB_HomePageCell.m in Sources */,
 				11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */,

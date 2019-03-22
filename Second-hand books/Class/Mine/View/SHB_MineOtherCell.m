@@ -8,6 +8,13 @@
 
 #import "SHB_MineOtherCell.h"
 
+@interface SHB_MineOtherCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *leftIV;
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+
+@end
+
 @implementation SHB_MineOtherCell
 
 - (void)awakeFromNib {
@@ -29,5 +36,38 @@
     
     return cell;
 }
+
+- (void)setModel:(nullable id)model index:(nullable NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 1) {
+        
+        if (indexPath.row == 0) {
+            
+            [self.leftIV setImage:[UIImage imageNamed:@"About"]];
+            self.titleLbl.text = @"关于";
+            
+        } else if (indexPath.row == 1) {
+            
+            [self.leftIV setImage:[UIImage imageNamed:@"Update"]];
+            self.titleLbl.text = @"更新";
+        }
+        
+    } else  if (indexPath.section == 2) {
+        
+        if (indexPath.row == 0) {
+            
+            [self.leftIV setImage:[UIImage imageNamed:@"NoDistrub"]];
+            self.titleLbl.text = @"勿扰";
+            
+        } else if (indexPath.row == 1) {
+            
+            [self.leftIV setImage:[UIImage imageNamed:@"Share"]];
+            self.titleLbl.text = @"分享";
+            
+        }
+    }
+    
+}
+
 
 @end
