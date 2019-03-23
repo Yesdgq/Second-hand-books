@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SHB_MineInfoSection1Cell : UITableViewCell
 
 + (nonnull instancetype)cellWithTableView:(nonnull UITableView *)tableView;
+- (void)setModel:(nullable id)model index:(nullable NSIndexPath *)indexPath;
 
 @end
 

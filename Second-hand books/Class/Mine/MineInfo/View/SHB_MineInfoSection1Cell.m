@@ -8,6 +8,13 @@
 
 #import "SHB_MineInfoSection1Cell.h"
 
+@interface SHB_MineInfoSection1Cell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+@property (weak, nonatomic) IBOutlet UITextField *contentTF;
+
+@end
+
 @implementation SHB_MineInfoSection1Cell
 
 - (void)awakeFromNib {
@@ -28,6 +35,17 @@
     //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (void)setModel:(nullable id)model index:(nullable NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 0) {
+        self.titleLbl.text = @"昵称";
+    } else if (indexPath.row == 1) {
+        self.titleLbl.text = @"姓名";
+    } else if (indexPath.row == 2) {
+        self.titleLbl.text = @"电话";
+    }
 }
 
 @end

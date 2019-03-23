@@ -8,6 +8,12 @@
 
 #import "SHB_MineInfoSection2Cell.h"
 
+@interface SHB_MineInfoSection2Cell ()
+
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+
+@end
+
 @implementation SHB_MineInfoSection2Cell
 
 - (void)awakeFromNib {

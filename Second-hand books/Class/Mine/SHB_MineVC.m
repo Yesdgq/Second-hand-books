@@ -12,6 +12,7 @@
 #import "SHB_MineInfoCell.h"
 #import "SHB_MineOtherCell.h"
 #import "SHB_MineInfoVC.h"
+#import "SHB_AboutVC.h"
 
 @interface SHB_MineVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -156,6 +157,9 @@
     } else if (indexPath.section == 1) {
         
         if (indexPath.row == 0) {
+            
+            SHB_AboutVC *aboutVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SHB_AboutVC"];
+            [self.navigationController pushViewController:aboutVC animated:YES];
             
         } else if (indexPath.row ==1) {
             ShowMessage(@"当前已是最新版本");

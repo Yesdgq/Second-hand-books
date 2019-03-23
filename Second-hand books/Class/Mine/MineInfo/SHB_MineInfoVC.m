@@ -46,7 +46,6 @@
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.scrollEnabled = NO;
         _tableView.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
         
         UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -56,7 +55,17 @@
         [submitButton setBackgroundColor:[UIColor colorWithHex:@"#2B7650"]];
         [submitButton addTarget:self action:@selector(submitChanges) forControlEvents:UIControlEventTouchUpInside];
         self.submitButton = submitButton;
-        _tableView.tableFooterView = submitButton;
+        
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+        [footerView addSubview:submitButton];
+        [submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(footerView.mas_left).offset(60);
+            make.right.equalTo(footerView.mas_right).offset(-60);
+            make.centerY.equalTo(footerView.mas_centerY);
+            make.height.equalTo(@50);
+        }];
+        _tableView.tableFooterView = footerView;
+        
     }
     return _tableView;
 }
@@ -82,7 +91,7 @@
         
     } else if (indexPath.section == 1) {
         SHB_MineInfoSection1Cell *cell = [SHB_MineInfoSection1Cell cellWithTableView:tableView];
-//        [cell setModel:self.sectionOneTitleArray index:indexPath];
+        [cell setModel:nil index:indexPath];
         return cell;
     } else {
         SHB_MineInfoSection2Cell *cell = [SHB_MineInfoSection2Cell cellWithTableView:tableView];
@@ -98,11 +107,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 110;
+        return 118;
     } else if (indexPath.section ==1) {
-        return 50;
+        return 45;
     } else {
-        return 250;
+        return 145;
     }
 }
 
@@ -146,6 +155,10 @@
                 break;
         }
     }
+}
+
+- (void)submitChanges {
+    
 }
 
 

@@ -29,6 +29,7 @@
 		11270A38223E98DD001E4A64 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A34223E98DD001E4A64 /* GTMBase64.m */; };
 		11270A39223E98DD001E4A64 /* DesEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A35223E98DD001E4A64 /* DesEncrypt.m */; };
 		11270A43223E9DE5001E4A64 /* SHB_BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A42223E9DE5001E4A64 /* SHB_BaseNavigationController.m */; };
+		1130755022467FDA005DEA3E /* SHB_AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1130754F22467FDA005DEA3E /* SHB_AboutVC.m */; };
 		1142BFAF2243DDC000AAFEC6 /* SHB_MineOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1142BFAD2243DDC000AAFEC6 /* SHB_MineOtherCell.m */; };
 		1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1142BFAE2243DDC000AAFEC6 /* SHB_MineOtherCell.xib */; };
 		1142BFB42243DDD300AAFEC6 /* SHB_MineInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1142BFB22243DDD300AAFEC6 /* SHB_MineInfoCell.m */; };
@@ -102,6 +103,8 @@
 		11270A37223E98DD001E4A64 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		11270A41223E9DE5001E4A64 /* SHB_BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BaseNavigationController.h; sourceTree = "<group>"; };
 		11270A42223E9DE5001E4A64 /* SHB_BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_BaseNavigationController.m; sourceTree = "<group>"; };
+		1130754E22467FDA005DEA3E /* SHB_AboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_AboutVC.h; sourceTree = "<group>"; };
+		1130754F22467FDA005DEA3E /* SHB_AboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_AboutVC.m; sourceTree = "<group>"; };
 		1142BFAC2243DDC000AAFEC6 /* SHB_MineOtherCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineOtherCell.h; sourceTree = "<group>"; };
 		1142BFAD2243DDC000AAFEC6 /* SHB_MineOtherCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MineOtherCell.m; sourceTree = "<group>"; };
 		1142BFAE2243DDC000AAFEC6 /* SHB_MineOtherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineOtherCell.xib; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 		110861B5224533AD002ED5A9 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				1130754E22467FDA005DEA3E /* SHB_AboutVC.h */,
+				1130754F22467FDA005DEA3E /* SHB_AboutVC.m */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				11270A16223E91F1001E4A64 /* SHB_UserInfoManager.m in Sources */,
 				11270A2B223E9861001E4A64 /* NSDictionary+Addition.m in Sources */,
 				11DB957A223E893E000CB7AE /* AppDelegate.m in Sources */,
+				1130755022467FDA005DEA3E /* SHB_AboutVC.m in Sources */,
 				11270A39223E98DD001E4A64 /* DesEncrypt.m in Sources */,
 				118282B8223FE83F007B974B /* SHB_RegisterVC.m in Sources */,
 				115EE771223FA404000FC84A /* SHB_GoodsModel.m in Sources */,

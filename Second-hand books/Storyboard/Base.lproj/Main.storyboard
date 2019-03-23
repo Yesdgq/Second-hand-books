@@ -352,6 +352,62 @@
             </objects>
             <point key="canvasLocation" x="800.79999999999995" y="64.31784107946028"/>
         </scene>
+        <!--AboutVC-->
+        <scene sceneID="h4N-jE-end">
+            <objects>
+                <viewController storyboardIdentifier="SHB_AboutVC" id="vD8-TF-URD" customClass="SHB_AboutVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pYh-Z0-r66">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="OTe-5C-SPl">
+                                <rect key="frame" x="147.5" y="80" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Pro-vc-d2j"/>
+                                    <constraint firstAttribute="height" constant="80" id="xPM-9r-flx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号：1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYB-yF-zhf">
+                                <rect key="frame" x="50" y="260" width="275" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="vFK-6Z-owR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="构建版本：1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYY-3l-jov">
+                                <rect key="frame" x="40" y="291" width="295" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="y9C-70-gFR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OTe-5C-SPl" firstAttribute="top" secondItem="ml2-JM-uFu" secondAttribute="top" constant="60" id="8Z0-5q-zmd"/>
+                            <constraint firstItem="hYY-3l-jov" firstAttribute="leading" secondItem="ml2-JM-uFu" secondAttribute="leading" constant="40" id="AnQ-Ui-dbV"/>
+                            <constraint firstItem="ml2-JM-uFu" firstAttribute="trailing" secondItem="hYY-3l-jov" secondAttribute="trailing" constant="40" id="Pub-uO-WoP"/>
+                            <constraint firstItem="QYB-yF-zhf" firstAttribute="top" secondItem="OTe-5C-SPl" secondAttribute="bottom" constant="100" id="U4y-4G-XIZ"/>
+                            <constraint firstItem="hYY-3l-jov" firstAttribute="top" secondItem="QYB-yF-zhf" secondAttribute="bottom" constant="10" id="W5j-DH-tHi"/>
+                            <constraint firstItem="QYB-yF-zhf" firstAttribute="leading" secondItem="ml2-JM-uFu" secondAttribute="leading" constant="50" id="bZm-fw-p7v"/>
+                            <constraint firstItem="OTe-5C-SPl" firstAttribute="centerX" secondItem="ml2-JM-uFu" secondAttribute="centerX" id="fcw-Qf-uxJ"/>
+                            <constraint firstItem="ml2-JM-uFu" firstAttribute="trailing" secondItem="QYB-yF-zhf" secondAttribute="trailing" constant="50" id="uA5-P3-YWK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ml2-JM-uFu"/>
+                    </view>
+                    <connections>
+                        <outlet property="buildVersionLbl" destination="hYY-3l-jov" id="NTS-DJ-Jeg"/>
+                        <outlet property="versionLbl" destination="QYB-yF-zhf" id="ed2-h0-3Z8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9p-Z7-hjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1469.5999999999999" y="62.518740629685162"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Account" width="20" height="20"/>
