@@ -17,6 +17,7 @@ target 'Second-hand books' do
     pod 'FMDB'                  
     pod 'SVProgressHUD'
     pod 'CYLTabBarController'
+    pod 'TOCropViewController'
 
 end
 

@@ -39,6 +39,7 @@ PODS:
     - SDWebImage/Core (= 4.4.5)
   - SDWebImage/Core (4.4.5)
   - SVProgressHUD (2.2.5)
+  - TOCropViewController (2.4.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - ReactiveObjC
   - SDWebImage
   - SVProgressHUD
+  - TOCropViewController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -66,6 +68,7 @@ SPEC REPOS:
     - ReactiveObjC
     - SDWebImage
     - SVProgressHUD
+    - TOCropViewController
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -79,7 +82,8 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TOCropViewController: 368d8df3ea43b62c3dc5a61f11b9048274d240bd
 
-PODFILE CHECKSUM: 495910e2a6db28154d0a97dc67e61d48b8633e9b
+PODFILE CHECKSUM: de4fea8db9ffe5c63f05aefcc7a087d1e558d64f
 
 COCOAPODS: 1.5.3

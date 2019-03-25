@@ -10,8 +10,9 @@
 #import "SHB_MineInfoSection0Cell.h"
 #import "SHB_MineInfoSection1Cell.h"
 #import "SHB_MineInfoSection2Cell.h"
+#import "TOCropViewController.h"
 
-@interface SHB_MineInfoVC () <UITableViewDelegate, UITableViewDataSource>
+@interface SHB_MineInfoVC () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -131,6 +132,37 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
     if (indexPath.section == 0) {
         
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择照片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        // 取消
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alert addAction:cancelAction];
+        
+        // 拍照
+        UIAlertAction *confimAction1 = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
+        }];
+        [alert addAction:confimAction1];
+        
+        // 从手机相册中选择
+        UIAlertAction *confimAction2 = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [self showImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+            
+        }];
+        [alert addAction:confimAction2];
+        
+        // 保存图片
+//        UIAlertAction *confimAction3 = [UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            
+//        }];
+//        [alert addAction:confimAction3];
+       
+        
+        [self presentViewController:alert animated:YES completion:nil];
        
         
     } else if (indexPath.section == 1) {
@@ -159,6 +191,116 @@
 
 - (void)submitChanges {
     
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    TOCropViewController *cropController = [[TOCropViewController alloc] initWithCroppingStyle:TOCropViewCroppingStyleDefault image:image];
+    cropController.delegate = self;
+    cropController.customAspectRatio = (CGSize){1.f, 1.f};
+    
+    cropController.onDidFinishCancelled = ^(BOOL isFinished) {
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    };
+    // Uncomment this if you wish to provide extra instructions via a title label
+    //cropController.title = @"Crop Image";
+    
+    // -- Uncomment these if you want to test out restoring to a previous crop setting --
+    //cropController.angle = 90; // The initial angle in which the image will be rotated
+    //cropController.imageCropFrame = CGRectMake(0,0,2848,4288); //The initial frame that the crop controller will have visible.
+    
+    // -- Uncomment the following lines of code to test out the aspect ratio features --
+    //cropController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetSquare; //Set the initial aspect ratio as a square
+    //cropController.aspectRatioLockEnabled = YES; // The crop box is locked to the aspect ratio and can't be resized away from it
+    //cropController.resetAspectRatioEnabled = NO; // When tapping 'reset', the aspect ratio will NOT be reset back to default
+    //cropController.aspectRatioPickerButtonHidden = YES;
+    
+    // -- Uncomment this line of code to place the toolbar at the top of the view controller --
+    //cropController.toolbarPosition = TOCropViewControllerToolbarPositionTop;
+    
+    //cropController.rotateButtonsHidden = YES;
+    //cropController.rotateClockwiseButtonHidden = NO;
+    
+    cropController.doneButtonTitle = @"完成";
+    cropController.cancelButtonTitle = @"取消";
+    
+    //If profile picture, push onto the same navigation stack
+    [picker pushViewController:cropController animated:YES];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark -
+#pragma mark TOCropViewControllerDelegate
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
+{
+    [self updateImageViewWithImage:image fromCropViewController:cropViewController];
+}
+
+- (void)updateImageViewWithImage:(UIImage *)image fromCropViewController:(TOCropViewController *)cropViewController
+{
+//    self.avatarImageView.image = image;
+    
+//    [cropViewController dismissAnimatedFromParentViewController:self withCroppedImage:image toView:self.avatarImageView toFrame:CGRectZero setup:NULL completion:^{
+//        self.avatarImageView.hidden = NO;
+//        _newAvatarImage = image;
+//        DONG_Log(@"image.size--->%@", NSStringFromCGSize(image.size));
+//    }];
+}
+
+
+#pragma mark -
+#pragma mark Target-Action
+
+- (void)photoBtnTouched:(UIButton *)button
+{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        ShowMessage(@"设备无法打开相机");
+        return;
+    }
+    
+    [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (void)albumBtnTouched:(UIButton *)button
+{
+    [self showImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+- (void)saveBtnTouched:(UIButton *)button
+{
+//    if (_callBack) {
+//        _callBack(_newAvatarImage);
+//    }
+//    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+
+/**
+ 展示图片库（从相册中选取、拍照）
+ 
+ @param sourceType UIImagePickerController源
+ */
+- (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
+{
+    UIImagePickerController *profilePicker = [[UIImagePickerController alloc] init];
+    profilePicker.modalPresentationStyle = UIModalPresentationPopover;
+    profilePicker.sourceType = sourceType;
+    profilePicker.allowsEditing = NO;
+    profilePicker.delegate = self;
+    profilePicker.preferredContentSize = CGSizeMake(512.f, 512.f);
+    profilePicker.popoverPresentationController.sourceView = self.view;
+    
+    [self presentViewController:profilePicker animated:YES completion:nil];
 }
 
 
