@@ -155,6 +155,68 @@
     return isSuccess;
 }
 
+// 由userId查询用户信息
+- (NSArray <SHB_UserModel *>*)queryUserWithUserId:(NSString *)userId {
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *sqlStr = [NSString stringWithFormat:@"SELECT * FROM userList WHERE id like '%@'", userId];
+        FMResultSet *res = [db executeQuery:sqlStr];
+        while ([res next]) {
+            SHB_UserModel *userModel   = [[SHB_UserModel alloc] init];
+            userModel.userId           = [NSString stringWithFormat:@"%d", [res intForColumn:@"id"]];
+            userModel.name             = [res stringForColumn:@"name"];
+            userModel.nickName         = [res stringForColumn:@"nickName"];
+            userModel.gender           = [res stringForColumn:@"gender"];
+            userModel.mobilePhone      = [res stringForColumn:@"mobilePhone"];
+            userModel.avatar           = [res stringForColumn:@"avatar"];
+            userModel.personalProfile  = [res stringForColumn:@"personalProfile"];
+            
+            [dataArray addObject:userModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
+// 由nickName查询用户信息
+- (NSArray <SHB_UserModel *>*)queryUserWithNickName:(NSString *)nickName {
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *sqlStr = [NSString stringWithFormat:@"SELECT * FROM userList WHERE nickName like '%@'", nickName];
+        FMResultSet *res = [db executeQuery:sqlStr];
+        while ([res next]) {
+            SHB_UserModel *userModel   = [[SHB_UserModel alloc] init];
+            userModel.userId           = [NSString stringWithFormat:@"%d", [res intForColumn:@"id"]];
+            userModel.name             = [res stringForColumn:@"name"];
+            userModel.nickName         = [res stringForColumn:@"nickName"];
+            userModel.gender           = [res stringForColumn:@"gender"];
+            userModel.mobilePhone      = [res stringForColumn:@"mobilePhone"];
+            userModel.avatar           = [res stringForColumn:@"avatar"];
+            userModel.personalProfile  = [res stringForColumn:@"personalProfile"];
+            
+            [dataArray addObject:userModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
+- (BOOL)updateUserInfoWithUserModel:(SHB_UserModel *)userModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        isSuccess = [db executeUpdate:@"UPDATE 'userList' SET name = ?, nickName = ?, gender = ?, mobilePhone = ?, avatar = ?, personalProfile = ?  WHERE id = ?", userModel.name, userModel.nickName, userModel.gender, userModel.mobilePhone, userModel.avatar, userModel.personalProfile, userModel.userId];
+    }];
+    if (isSuccess) {
+        DONG_Log(@"更新用户成功：%@", userModel.nickName);
+    } else {
+        DONG_Log(@"更新用户失败：%@", userModel.nickName);
+    }
+    
+    return isSuccess;
+}
+
 
 
 

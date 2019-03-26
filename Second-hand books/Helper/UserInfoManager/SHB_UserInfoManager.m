@@ -9,6 +9,7 @@
 #import "SHB_UserInfoManager.h"
 
 #define k_for_isLogin @"k_for_islogin" // 登录状态
+#define k_for_userId @"k_for_userId" // 姓名
 #define k_for_name @"k_for_name" // 姓名
 #define k_for_mobilePhone @"k_for_mobilePhone" // 手机
 #define k_for_token @"k_for_token" // token
@@ -37,6 +38,7 @@
  *  清空用户信息
  */
 - (void)removeUserInfo {
+    [DONG_UserDefaults removeObjectForKey:k_for_userId];
     [DONG_UserDefaults removeObjectForKey:k_for_name]; //
     [DONG_UserDefaults removeObjectForKey:k_for_mobilePhone]; //
     [DONG_UserDefaults removeObjectForKey:k_for_token]; // 
@@ -74,6 +76,11 @@
 - (BOOL)isLogin
 {
     return [DONG_UserDefaults boolForKey:k_for_isLogin];
+}
+
+- (NSString *)userId
+{
+    return [DONG_UserDefaults objectForKey:k_for_userId];
 }
 
 - (NSString *)token
@@ -125,6 +132,14 @@
 {
     [DONG_UserDefaults setBool:isLogin forKey:k_for_isLogin];
     [DONG_UserDefaults synchronize];
+}
+
+- (void)setUserId:(NSString *)userId
+{
+    if (![userId isKindOfClass:[NSNull class]] && userId.length > 0) { // 如果存在保存token
+        [DONG_UserDefaults setObject:userId forKey:k_for_userId];
+        [DONG_UserDefaults synchronize];
+    }
 }
 
 - (void)setToken:(NSString *)token

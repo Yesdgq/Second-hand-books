@@ -19,12 +19,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    UIImage *img = [[UIImage alloc] initWithContentsOfFile:UserInfoManager.avatar];
-    if (img) {
-        [self.avatarIV setImage:img];
-    } else {
-        [self.avatarIV setImage:[UIImage imageNamed:@"Avatar"]];
-    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -41,5 +35,24 @@
     
     return cell;
 }
+
+- (void)setUserModel:(SHB_UserModel *)userModel {
+    
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:userModel.avatar];
+    if (img) {
+        [self.avatarIV setImage:img];
+    } else {
+        [self.avatarIV setImage:[UIImage imageNamed:@"Avatar"]];
+    }
+    
+    _userModel = userModel;
+}
+
+- (void)setTempAvatarImage:(UIImage *)tempAvatarImage {
+    [self.avatarIV setImage:tempAvatarImage];
+    
+    _tempAvatarImage = tempAvatarImage;
+}
+
 
 @end

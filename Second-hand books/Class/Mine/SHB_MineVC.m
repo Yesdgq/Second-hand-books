@@ -13,11 +13,14 @@
 #import "SHB_MineOtherCell.h"
 #import "SHB_MineInfoVC.h"
 #import "SHB_AboutVC.h"
+#import "SHB_UserModel.h"
+
 
 @interface SHB_MineVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIButton *signOutBtn;
+@property (nonatomic, strong) SHB_UserModel *userModel;
 
 @end
 
@@ -37,8 +40,6 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     
-    
-    
     UIButton *signOutBtn = [[UIButton alloc] init];
     signOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [signOutBtn setBackgroundColor:[UIColor colorWithHex:@"#2B7650"]];
@@ -56,6 +57,15 @@
         make.height.equalTo(@50);
     }];
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSArray *array = [DataBaseManager queryUserWithUserId:UserInfoManager.userId];
+    self.userModel = array.firstObject;
+    [self.tableView reloadData];
 }
 
 - (void)signOut:(UIButton *)sender {
@@ -105,13 +115,15 @@
     
     if (indexPath.section == 0) {
         SHB_MineInfoCell *cell = [SHB_MineInfoCell cellWithTableView:tableView];
-
+        cell.userModel = self.userModel;
+        
         return cell;
         
     } else {
         
         SHB_MineOtherCell *cell = [SHB_MineOtherCell cellWithTableView:tableView];
-        [cell setModel:nil index:indexPath];
+        [cell setModel:self.userModel index:indexPath];
+        
         return cell;
     }
     

@@ -12,12 +12,17 @@
 #import "SHB_MineInfoSection2Cell.h"
 #import "TOCropViewController.h"
 #import "UIImage+IMB.h"
+#import "SHB_UserModel.h"
+
 
 @interface SHB_MineInfoVC () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) UIButton *submitButton;
+
+@property (nonatomic, strong) SHB_UserModel *userModel;
+@property (nonatomic, strong) NSData *avatarData;
 
 @end
 
@@ -30,6 +35,14 @@
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
     
     [self.view addSubview:self.tableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSArray *array = [DataBaseManager queryUserWithUserId:UserInfoManager.userId];
+    self.userModel = array.firstObject;
+    [self.tableView reloadData];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -86,21 +99,52 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
+        
         SHB_MineInfoSection0Cell *cell = [SHB_MineInfoSection0Cell cellWithTableView:tableView];
-        //        [cell setModel:_avatarImage index:indexPath];
+        cell.userModel = self.userModel;
+        
         return cell;
         
     } else if (indexPath.section == 1) {
+        
         SHB_MineInfoSection1Cell *cell = [SHB_MineInfoSection1Cell cellWithTableView:tableView];
-        [cell setModel:nil index:indexPath];
+        [cell setModel:self.userModel index:indexPath];
+        @weakify(self);
+        [[cell.contentTF.rac_textSignal takeUntil:self.rac_willDeallocSignal] subscribeNext:^(NSString * _Nullable x) {
+            DONG_Log(@"x:%@", x);
+            @strongify(self);
+            switch (cell.contentTF.tag) {
+                case 0:
+                    self.userModel.nickName = x;
+                    break;
+                    
+                case 1:
+                    self.userModel.name = x;
+                    break;
+                    
+                case 2:
+                    self.userModel.mobilePhone = x;
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+        
         return cell;
+        
     } else {
+        
         SHB_MineInfoSection2Cell *cell = [SHB_MineInfoSection2Cell cellWithTableView:tableView];
-        //        [cell setModel:nil index:indexPath];
-        //        cell.callback = ^(UITextView *textView) {
-        //            _bioString = textView.text;
-        //        };
+        cell.userModel = self.userModel;
+        @weakify(self);
+        [cell.contentTextView.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+            @strongify(self);
+            self.userModel.personalProfile = x;
+        }];
+        
         return cell;
     }
 }
@@ -194,6 +238,32 @@
 
 - (void)submitChanges {
     
+    [SVProgressHUD showWithStatus:@"提交信息中..."];
+    
+    BOOL success = [self.avatarData writeToFile:self.userModel.avatar atomically:YES];
+    if (success) {
+        
+        DONG_Log(@"头像写入成功");
+    }
+    
+    // 3秒后执行以下内容  模拟登陆
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        DismissHud();
+        
+//        BOOL isExisted = [DataBaseManager queryUserIsExistedWithNickName:self.userModel];
+//        if (isExisted) {
+//            ShowMessage(@"用户已存在，请换个昵称试试！");
+//            return;
+//        }
+        
+        [DataBaseManager updateUserInfoWithUserModel:self.userModel];
+        ShowMessage(@"修改成功");
+        
+        [self.navigationController popViewControllerAnimated:YES];
+       
+    });
+    
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -216,7 +286,7 @@
     
     // -- Uncomment the following lines of code to test out the aspect ratio features --
     //cropController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetSquare; //Set the initial aspect ratio as a square
-    //cropController.aspectRatioLockEnabled = YES; // The crop box is locked to the aspect ratio and can't be resized away from it
+    cropController.aspectRatioLockEnabled = YES; // The crop box is locked to the aspect ratio and can't be resized away from it
     //cropController.resetAspectRatioEnabled = NO; // When tapping 'reset', the aspect ratio will NOT be reset back to default
     //cropController.aspectRatioPickerButtonHidden = YES;
     
@@ -252,29 +322,27 @@
     
     [cropViewController dismissAnimatedFromParentViewController:self withCroppedImage:image toView:nil toFrame:CGRectZero setup:nil completion:^{
         
-        DONG_Log(@"image.size--->%@", NSStringFromCGSize(image.size));
         NSString *doc = [FileManageCommon GetDocumentPath];
         [FileManageCommon CreateList:doc ListName:@"picture"];
         NSString *filePath = [doc stringByAppendingPathComponent:@"picture/avatarss.png"];
         DONG_Log(@"文件路径：%@", filePath);
-        
         
         NSData *originData = UIImageJPEGRepresentation(image, 1.f);
         DONG_Log(@"%@",[NSString stringWithFormat:@"原数据大小:%.4f MB",((double)originData.length/1024.f/1024.f)]);
         DONG_Log(@"原数据尺寸: width:%f height:%f",image.size.width,image.size.height);
         
         // 图片压缩
-        NSData *compressData = [image compressWithLengthLimit:50.f * 1024.f];
+        NSData *compressData = [image compressWithLengthLimit:30.f * 1024.f];
+        self.avatarData = compressData;
+        self.userModel.avatar = filePath;
         UIImage *compressImage = [UIImage imageWithData:compressData];
         DONG_Log(@"压缩数据尺寸: width:%f height:%f",compressImage.size.width, compressImage.size.height);
         DONG_Log(@"压缩数据大小:%.4f MB",(double)compressData.length/1024.f/1024.f);
         
-        BOOL success = [compressData writeToFile:filePath atomically:YES];
-        if (success) {
-            UserInfoManager.avatar = filePath;
-            DONG_Log(@"头像写入成功");
-        }
-
+        // 头像的临时显示
+        SHB_MineInfoSection0Cell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        cell.tempAvatarImage = compressImage;
+        
     }];
 }
 

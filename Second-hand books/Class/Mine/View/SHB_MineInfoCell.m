@@ -26,17 +26,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    UIImage *img = [[UIImage alloc] initWithContentsOfFile:UserInfoManager.avatar];
-    if (img) {
-        [self.avatarIV setImage:img];
-    } else {
-        [self.avatarIV setImage:[UIImage imageNamed:@"Avatar"]];
-    }
-    self.nickNameLbl.text = UserInfoManager.nickname;
-    self.nameLbl.text = UserInfoManager.name;
-    self.phoneLbl.text = UserInfoManager.mobilePhone;
-    self.bioLbl.text = UserInfoManager.personalProfile;
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -51,11 +40,23 @@
     if (cell == nil) cell = [[NSBundle mainBundle] loadNibNamed:ID owner:nil options:nil][0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    
-    
-    
-    
     return cell;
+}
+
+- (void)setUserModel:(SHB_UserModel *)userModel {
+    
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:userModel.avatar];
+    if (img) {
+        [self.avatarIV setImage:img];
+    } else {
+        [self.avatarIV setImage:[UIImage imageNamed:@"Avatar"]];
+    }
+    self.nickNameLbl.text = userModel.nickName;
+    self.nameLbl.text = userModel.name;
+    self.phoneLbl.text = userModel.mobilePhone;
+    self.bioLbl.text = userModel.personalProfile;
+    
+    _userModel = userModel;
 }
 
 @end

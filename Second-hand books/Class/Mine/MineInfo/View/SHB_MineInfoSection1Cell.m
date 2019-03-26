@@ -38,13 +38,21 @@
 }
 
 - (void)setModel:(nullable id)model index:(nullable NSIndexPath *)indexPath {
+    SHB_UserModel *userModel = (SHB_UserModel *)model;
+    
+    self.contentTF.tag = indexPath.row; // 给输入框做tag标记
     
     if (indexPath.row == 0) {
         self.titleLbl.text = @"昵称";
+        self.contentTF.text = userModel.nickName;
+        
     } else if (indexPath.row == 1) {
         self.titleLbl.text = @"姓名";
+        self.contentTF.text = userModel.name;
+        
     } else if (indexPath.row == 2) {
         self.titleLbl.text = @"电话";
+        self.contentTF.text = userModel.mobilePhone;
     }
 }
 

@@ -62,14 +62,14 @@
         return;
     }
     
-    SHB_UserModel *userModel = [[SHB_UserModel alloc] init];
+    __block SHB_UserModel *userModel = [[SHB_UserModel alloc] init];
     userModel.nickName = self.nickNameTF.text;
     userModel.password = self.passwordTF.text;
     
     [SVProgressHUD showWithStatus:@"登录中..."];
     
     // 3秒后执行以下内容  模拟登陆
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         DismissHud();
         
@@ -79,9 +79,13 @@
         if (success) {
             
             ShowMessage(@"登录成功");
+            
+            NSArray *array = [DataBaseManager queryUserWithNickName:UserInfoManager.nickname];
+            userModel = array.firstObject;
+            
             UserInfoManager.isLogin = YES; // 存储登陆状态
-            UserInfoManager.name = userModel.name;
-            UserInfoManager.nickname = userModel.nickName;
+            UserInfoManager.userId = userModel.userId;
+            
             // 初始化Tabbar控件
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             [appDelegate initializeTabbar];

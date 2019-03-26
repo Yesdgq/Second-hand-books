@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 用户是否登录 */
 @property (nonatomic, assign) BOOL isLogin;
+/** 用户ID */
+@property (nonatomic, copy) NSString *userId;
 /** 员工真是姓名 */
 @property (nonatomic, copy) NSString *name;
 /** 昵称 */

@@ -10,7 +10,7 @@
 
 @interface SHB_MineInfoSection2Cell ()
 
-@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+;
 
 @end
 
@@ -34,6 +34,13 @@
     //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (void)setUserModel:(SHB_UserModel *)userModel {
+    
+    self.contentTextView.text = userModel.personalProfile;
+    
+    _userModel = userModel;
 }
 
 @end
