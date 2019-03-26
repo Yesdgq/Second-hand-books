@@ -23,6 +23,7 @@
 #import "DONG_DataBaseManager.h"
 #import "SVProgressHUD.h"
 #import "UIViewController+Addition.h"
+#import "UIImage+Compress.h"
 
 
 

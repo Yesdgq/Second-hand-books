@@ -137,6 +137,13 @@
                 <constraint firstItem="1xS-jj-zwa" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="zhj-uE-2Ma"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="avatarIV" destination="1xS-jj-zwa" id="wdQ-KZ-J2o"/>
+                <outlet property="bioLbl" destination="z8Z-5X-1sN" id="ZK0-Gi-r45"/>
+                <outlet property="nameLbl" destination="LbR-U5-CMb" id="3kB-DQ-cLt"/>
+                <outlet property="nickNameLbl" destination="3eg-Au-yAV" id="CTX-YH-3j8"/>
+                <outlet property="phoneLbl" destination="Pk4-D0-gsN" id="ES3-ah-mje"/>
+            </connections>
             <point key="canvasLocation" x="-27.199999999999999" y="116.04197901049476"/>
         </tableViewCell>
     </objects>

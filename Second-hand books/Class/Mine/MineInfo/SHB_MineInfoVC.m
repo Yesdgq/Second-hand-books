@@ -11,6 +11,7 @@
 #import "SHB_MineInfoSection1Cell.h"
 #import "SHB_MineInfoSection2Cell.h"
 #import "TOCropViewController.h"
+#import "UIImage+IMB.h"
 
 @interface SHB_MineInfoVC () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate>
 
@@ -87,7 +88,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         SHB_MineInfoSection0Cell *cell = [SHB_MineInfoSection0Cell cellWithTableView:tableView];
-//        [cell setModel:_avatarImage index:indexPath];
+        //        [cell setModel:_avatarImage index:indexPath];
         return cell;
         
     } else if (indexPath.section == 1) {
@@ -96,10 +97,10 @@
         return cell;
     } else {
         SHB_MineInfoSection2Cell *cell = [SHB_MineInfoSection2Cell cellWithTableView:tableView];
-//        [cell setModel:nil index:indexPath];
-//        cell.callback = ^(UITextView *textView) {
-//            _bioString = textView.text;
-//        };
+        //        [cell setModel:nil index:indexPath];
+        //        cell.callback = ^(UITextView *textView) {
+        //            _bioString = textView.text;
+        //        };
         return cell;
     }
 }
@@ -137,6 +138,8 @@
         // 取消
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
+            
+            
         }];
         [alert addAction:cancelAction];
         
@@ -156,20 +159,20 @@
         [alert addAction:confimAction2];
         
         // 保存图片
-//        UIAlertAction *confimAction3 = [UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            
-//        }];
-//        [alert addAction:confimAction3];
-       
+        //        UIAlertAction *confimAction3 = [UIAlertAction actionWithTitle:@"保存图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //
+        //        }];
+        //        [alert addAction:confimAction3];
+        
         
         [self presentViewController:alert animated:YES completion:nil];
-       
+        
         
     } else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
             {
-               
+                
             }
                 break;
                 
@@ -179,7 +182,7 @@
                 
             case 2:
             {
-               
+                
             }
                 break;
                 
@@ -246,13 +249,33 @@
 
 - (void)updateImageViewWithImage:(UIImage *)image fromCropViewController:(TOCropViewController *)cropViewController
 {
-//    self.avatarImageView.image = image;
     
-//    [cropViewController dismissAnimatedFromParentViewController:self withCroppedImage:image toView:self.avatarImageView toFrame:CGRectZero setup:NULL completion:^{
-//        self.avatarImageView.hidden = NO;
-//        _newAvatarImage = image;
-//        DONG_Log(@"image.size--->%@", NSStringFromCGSize(image.size));
-//    }];
+    [cropViewController dismissAnimatedFromParentViewController:self withCroppedImage:image toView:nil toFrame:CGRectZero setup:nil completion:^{
+        
+        DONG_Log(@"image.size--->%@", NSStringFromCGSize(image.size));
+        NSString *doc = [FileManageCommon GetDocumentPath];
+        [FileManageCommon CreateList:doc ListName:@"picture"];
+        NSString *filePath = [doc stringByAppendingPathComponent:@"picture/avatarss.png"];
+        DONG_Log(@"文件路径：%@", filePath);
+        
+        
+        NSData *originData = UIImageJPEGRepresentation(image, 1.f);
+        DONG_Log(@"%@",[NSString stringWithFormat:@"原数据大小:%.4f MB",((double)originData.length/1024.f/1024.f)]);
+        DONG_Log(@"原数据尺寸: width:%f height:%f",image.size.width,image.size.height);
+        
+        // 图片压缩
+        NSData *compressData = [image compressWithLengthLimit:50.f * 1024.f];
+        UIImage *compressImage = [UIImage imageWithData:compressData];
+        DONG_Log(@"压缩数据尺寸: width:%f height:%f",compressImage.size.width, compressImage.size.height);
+        DONG_Log(@"压缩数据大小:%.4f MB",(double)compressData.length/1024.f/1024.f);
+        
+        BOOL success = [compressData writeToFile:filePath atomically:YES];
+        if (success) {
+            UserInfoManager.avatar = filePath;
+            DONG_Log(@"头像写入成功");
+        }
+
+    }];
 }
 
 
@@ -276,10 +299,10 @@
 
 - (void)saveBtnTouched:(UIButton *)button
 {
-//    if (_callBack) {
-//        _callBack(_newAvatarImage);
-//    }
-//    [self.navigationController popViewControllerAnimated:YES];
+    //    if (_callBack) {
+    //        _callBack(_newAvatarImage);
+    //    }
+    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

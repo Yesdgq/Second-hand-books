@@ -108,9 +108,9 @@
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *FileDirectory = [List stringByAppendingPathComponent:Name];
-    if ([self IsFileExists:Name])
+    if ([self IsFileExists:FileDirectory])
     {
-        NSLog(@"exist,%@",Name);
+        DONG_Log(@"exist,%@",Name);
     }
     else
     {
@@ -125,7 +125,7 @@
  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
  */
 
-+ (NSString*) readFromFile:(NSString*)filepath  {
++ (NSString*)readFromFile:(NSString*)filepath  {
     
     if([[NSFileManager defaultManager] fileExistsAtPath:filepath]) {
         NSArray*content = [[NSArray alloc]initWithContentsOfFile:filepath];

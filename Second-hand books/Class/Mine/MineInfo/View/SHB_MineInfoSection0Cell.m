@@ -8,11 +8,23 @@
 
 #import "SHB_MineInfoSection0Cell.h"
 
+@interface SHB_MineInfoSection0Cell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarIV;
+
+@end
+
 @implementation SHB_MineInfoSection0Cell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:UserInfoManager.avatar];
+    if (img) {
+        [self.avatarIV setImage:img];
+    } else {
+        [self.avatarIV setImage:[UIImage imageNamed:@"Avatar"]];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

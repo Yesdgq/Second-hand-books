@@ -56,6 +56,9 @@
                 <constraint firstItem="YPu-aN-Sgd" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="i0h-Tb-unN"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="avatarIV" destination="FUn-jO-Cua" id="Ee6-sd-Ze8"/>
+            </connections>
             <point key="canvasLocation" x="301" y="130"/>
         </tableViewCell>
     </objects>
