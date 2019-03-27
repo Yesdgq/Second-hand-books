@@ -8,6 +8,7 @@
 
 #import "SHB_MyGoodsVC.h"
 #import "SHB_MyGoodsCell.h"
+#import "SHB_PublishBookVC.h"
 
 @interface SHB_MyGoodsVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -24,6 +25,7 @@
     self.navigationItem.title = @"我的发布";
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
 
+    [self addBarItems];
     [self addSubviews];
 }
 
@@ -35,6 +37,28 @@
         make.top.equalTo(self.view.mas_top).offset(64);
         make.left.right.bottom.equalTo(self.view);
     }];
+}
+
+- (void)addBarItems {
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 50, 30);
+    [btn setImage:[UIImage imageNamed:@"More"] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(publishGoods:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    UIBarButtonItem *rightNegativeSpacer = [[UIBarButtonItem alloc]
+                                            initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                            target:nil action:nil];
+    rightNegativeSpacer.width = -25;
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:rightNegativeSpacer,item, nil];
+    
+}
+
+- (void)publishGoods:(UIButton *)sender {
+    
+    SHB_PublishBookVC *publishVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SHB_PublishBookVC"];
+    [self.navigationController pushViewController:publishVC animated:YES];
 }
 
 

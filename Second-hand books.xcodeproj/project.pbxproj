@@ -35,6 +35,7 @@
 		1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1142BFAE2243DDC000AAFEC6 /* SHB_MineOtherCell.xib */; };
 		1142BFB42243DDD300AAFEC6 /* SHB_MineInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1142BFB22243DDD300AAFEC6 /* SHB_MineInfoCell.m */; };
 		1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1142BFB32243DDD300AAFEC6 /* SHB_MineInfoCell.xib */; };
+		115538B7224BC3100003007F /* SHB_PublishBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 115538B6224BC3100003007F /* SHB_PublishBookVC.m */; };
 		115EE76D223FA3BE000FC84A /* DONG_DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE76C223FA3BE000FC84A /* DONG_DataBaseManager.m */; };
 		115EE771223FA404000FC84A /* SHB_GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE770223FA404000FC84A /* SHB_GoodsModel.m */; };
 		115EE774223FA4CE000FC84A /* SHB_UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE773223FA4CE000FC84A /* SHB_UserModel.m */; };
@@ -115,6 +116,8 @@
 		1142BFB12243DDD300AAFEC6 /* SHB_MineInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineInfoCell.h; sourceTree = "<group>"; };
 		1142BFB22243DDD300AAFEC6 /* SHB_MineInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MineInfoCell.m; sourceTree = "<group>"; };
 		1142BFB32243DDD300AAFEC6 /* SHB_MineInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineInfoCell.xib; sourceTree = "<group>"; };
+		115538B5224BC3100003007F /* SHB_PublishBookVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_PublishBookVC.h; sourceTree = "<group>"; };
+		115538B6224BC3100003007F /* SHB_PublishBookVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_PublishBookVC.m; sourceTree = "<group>"; };
 		115EE76B223FA3BE000FC84A /* DONG_DataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DONG_DataBaseManager.h; sourceTree = "<group>"; };
 		115EE76C223FA3BE000FC84A /* DONG_DataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DONG_DataBaseManager.m; sourceTree = "<group>"; };
 		115EE76F223FA404000FC84A /* SHB_GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_GoodsModel.h; sourceTree = "<group>"; };
@@ -214,6 +217,7 @@
 				11270A40223E9DC1001E4A64 /* Base */,
 				11270A4C223EA6E2001E4A64 /* Tabbar */,
 				118282AF223FD55E007B974B /* Login */,
+				115EE76E223FA3D6000FC84A /* Model */,
 				11270A4B223EA6DF001E4A64 /* Home */,
 				11270A49223EA6D9001E4A64 /* MyGoods */,
 				11E4DA22224093F000B21FA9 /* Discovery */,
@@ -339,9 +343,10 @@
 		11270A49223EA6D9001E4A64 /* MyGoods */ = {
 			isa = PBXGroup;
 			children = (
-				115EE76E223FA3D6000FC84A /* Model */,
 				118282BE223FF81D007B974B /* SHB_MyGoodsVC.h */,
 				118282BF223FF81D007B974B /* SHB_MyGoodsVC.m */,
+				115538B5224BC3100003007F /* SHB_PublishBookVC.h */,
+				115538B6224BC3100003007F /* SHB_PublishBookVC.m */,
 				11D7300D2241456D002475A7 /* Cell */,
 			);
 			path = MyGoods;
@@ -698,6 +703,7 @@
 				11D7300422413C97002475A7 /* SHB_HomePageCell.m in Sources */,
 				11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */,
 				11270A2E223E9861001E4A64 /* NSString+Dong.m in Sources */,
+				115538B7224BC3100003007F /* SHB_PublishBookVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

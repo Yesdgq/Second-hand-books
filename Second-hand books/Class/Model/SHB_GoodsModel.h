@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 以下是商品的属性
 @property (nonatomic, copy) NSString *bookId;               //  书ID
 @property (nonatomic, copy) NSString *bookName;             //  书名
+@property (nonatomic, copy) NSString *author;               //  书名
+@property (nonatomic, copy) NSString *coverImage;           //  封面图片
 @property (nonatomic, copy) NSString *introduction;         //  简介
 @property (nonatomic, copy) NSString *price;                //  价钱
 @property (nonatomic, copy) NSString *owerID;               //  书籍主人ID

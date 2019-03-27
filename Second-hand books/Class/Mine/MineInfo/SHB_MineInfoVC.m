@@ -11,11 +11,10 @@
 #import "SHB_MineInfoSection1Cell.h"
 #import "SHB_MineInfoSection2Cell.h"
 #import "TOCropViewController.h"
-#import "UIImage+IMB.h"
 #import "SHB_UserModel.h"
 
 
-@interface SHB_MineInfoVC () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TOCropViewControllerDelegate>
+@interface SHB_MineInfoVC () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, TOCropViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -251,16 +250,28 @@
         
         DismissHud();
         
-//        BOOL isExisted = [DataBaseManager queryUserIsExistedWithNickName:self.userModel];
-//        if (isExisted) {
-//            ShowMessage(@"用户已存在，请换个昵称试试！");
-//            return;
-//        }
-        
-        [DataBaseManager updateUserInfoWithUserModel:self.userModel];
-        ShowMessage(@"修改成功");
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        if ([UserInfoManager.nickname isEqualToString:self.userModel.nickName]) {
+         
+            [DataBaseManager updateUserInfoWithUserModel:self.userModel];
+            ShowMessage(@"修改成功");
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } else {
+            
+            BOOL isExisted = [DataBaseManager queryUserIsExistedWithNickName:self.userModel];
+            if (isExisted) {
+                ShowMessage(@"用户已存在，请换个昵称试试！");
+                return;
+            }
+            
+            [DataBaseManager updateUserInfoWithUserModel:self.userModel];
+            ShowMessage(@"修改成功");
+            UserInfoManager.nickname = self.userModel.nickName;
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
        
     });
     
@@ -288,7 +299,7 @@
     //cropController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetSquare; //Set the initial aspect ratio as a square
     cropController.aspectRatioLockEnabled = YES; // The crop box is locked to the aspect ratio and can't be resized away from it
     //cropController.resetAspectRatioEnabled = NO; // When tapping 'reset', the aspect ratio will NOT be reset back to default
-    //cropController.aspectRatioPickerButtonHidden = YES;
+    cropController.aspectRatioPickerButtonHidden = YES;
     
     // -- Uncomment this line of code to place the toolbar at the top of the view controller --
     //cropController.toolbarPosition = TOCropViewControllerToolbarPositionTop;
@@ -344,33 +355,6 @@
         cell.tempAvatarImage = compressImage;
         
     }];
-}
-
-
-#pragma mark -
-#pragma mark Target-Action
-
-- (void)photoBtnTouched:(UIButton *)button
-{
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        ShowMessage(@"设备无法打开相机");
-        return;
-    }
-    
-    [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
-}
-
-- (void)albumBtnTouched:(UIButton *)button
-{
-    [self showImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
-}
-
-- (void)saveBtnTouched:(UIButton *)button
-{
-    //    if (_callBack) {
-    //        _callBack(_newAvatarImage);
-    //    }
-    //    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
