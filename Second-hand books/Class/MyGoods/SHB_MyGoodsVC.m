@@ -13,7 +13,7 @@
 @interface SHB_MyGoodsVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;   // 表单
-@property (nonatomic, copy) NSArray *dataArray;         // 数据源
+@property (nonatomic, strong) NSMutableArray *dataArray;         // 数据源
 
 @end
 
@@ -24,18 +24,17 @@
     
     self.navigationItem.title = @"我的发布";
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
-
+    
     [self addBarItems];
     
-    // 查询指定人的全部书
-    self.dataArray = [DataBaseManager queryAllBooksWithUserId:UserInfoManager.userId];
     
     [self addSubviews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.dataArray = [DataBaseManager queryAllBooksWithOnShelfStatus:YES];
+    // 查询指定人的全部书
+    self.dataArray = [[DataBaseManager queryAllBooksWithUserId:UserInfoManager.userId] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -114,7 +113,7 @@
 // 行高是多少
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 110;
+    return 120;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -125,8 +124,56 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
     
-//    SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
-//    [self.navigationController pushViewController:bookInfoVC animated:YES];
+    //    SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
+    //    [self.navigationController pushViewController:bookInfoVC animated:YES];
+}
+
+//// 将delete改为删除
+//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return @"删除";
+//}
+//
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        // 1.把model相应的数据删掉
+//        [self.dataArray removeObjectAtIndex:indexPath.row];
+//        // 2.把view相应的cell删掉
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//
+//        [DataBaseManager deleteGoodsWithGoodsModel:goodsModel];
+//    }
+//}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewRowAction *action0 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        // 1.把model相应的数据删掉
+        SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+        [self.dataArray removeObjectAtIndex:indexPath.row];
+        // 2.把view相应的cell删掉
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [DataBaseManager deleteGoodsWithGoodsModel:goodsModel];
+        
+    }];
+    
+    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"上架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+        goodsModel.onShelf = YES;
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [DataBaseManager updateBook:goodsModel];
+    }];
+    
+    UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"下架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+        goodsModel.onShelf = NO;
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [DataBaseManager updateBook:goodsModel];
+        
+    }];
+    return @[action0, action1, action2];
 }
 
 

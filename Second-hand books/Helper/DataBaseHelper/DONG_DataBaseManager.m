@@ -226,7 +226,7 @@
         DONG_Log(@"删除用户成功：%@", userModel.name);
     } else {
         DONG_Log(@"删除用户失败：%@", userModel.name);
-    
+    }
     return isSuccess;
 }
 
@@ -334,7 +334,6 @@
     
     __block BOOL isSuccess;
     [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
-        // (, , author, owerID, , price, area, publishTime, introduction, coverImage)
         isSuccess =  [db executeUpdate:@"UPDATE 'books' SET onShelf = ? WHERE id = ? ", @(goodsModel.onShelf), goodsModel.bookId];
     }];
     if (isSuccess) {

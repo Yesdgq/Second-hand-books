@@ -8,6 +8,18 @@
 
 #import "SHB_MyGoodsCell.h"
 
+
+@interface SHB_MyGoodsCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *coverIV;
+@property (weak, nonatomic) IBOutlet UILabel *bookNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *shelfStatusLbl;
+@property (weak, nonatomic) IBOutlet UILabel *priceLbl;
+@property (weak, nonatomic) IBOutlet UILabel *publishTimeLbl;
+
+
+@end
+
 @implementation SHB_MyGoodsCell
 
 - (void)awakeFromNib {
@@ -32,18 +44,23 @@
 
 - (void)setGoodsModel:(SHB_GoodsModel *)goodsModel {
     
-//    UIImage *img = [[UIImage alloc] initWithContentsOfFile:goodsModel.coverImage];
-//    if (img) {
-//        [self.coverIV setImage:img];
-//    } else {
-//        [self.coverIV setImage:[UIImage imageNamed:@"Book-PlaceHolder"]];
-//    }
-//
-//    self.bookNameLbl.text = goodsModel.bookName;
-//    self.authorLbl.text = goodsModel.author;
-//    self.priceLbl.text = [NSString stringWithFormat:@"￥%@", goodsModel.price];
-//    self.ownerLbl.text = goodsModel.owerID;
-//    self.publishLbl.text = goodsModel.publishTime;
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:goodsModel.coverImage];
+    if (img) {
+        [self.coverIV setImage:img];
+    } else {
+        [self.coverIV setImage:[UIImage imageNamed:@"Book-PlaceHolder"]];
+    }
+
+    self.bookNameLbl.text = goodsModel.bookName;
+    NSString *shelfStatusStr;
+    if (goodsModel.onShelf) {
+        shelfStatusStr = @"销售中";
+    } else {
+        shelfStatusStr = @"下架";
+    }
+    self.shelfStatusLbl.text = shelfStatusStr;
+    self.priceLbl.text = [NSString stringWithFormat:@"￥%@", goodsModel.price];
+    self.publishTimeLbl.text = goodsModel.publishTime;
     
     _goodsModel = goodsModel;
 }
