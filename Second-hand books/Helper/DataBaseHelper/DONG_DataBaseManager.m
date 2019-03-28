@@ -217,8 +217,147 @@
     return isSuccess;
 }
 
+- (BOOL)deleteUserWihtUserModel:(SHB_UserModel *)userModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        isSuccess =  [db executeUpdate:@"DELETE FROM userList WHERE id = ?", userModel.userId];
+    }];
+    if (isSuccess) {
+        DONG_Log(@"删除用户成功：%@", userModel.name);
+    } else {
+        DONG_Log(@"删除用户失败：%@", userModel.name);
+    
+    return isSuccess;
+}
 
 
 
+
+/****************************************** 商品信息 *******************************************/
+
+- (void)createBooksTable {
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        // 初始化数据表
+        NSString *userList = @"CREATE TABLE 'books' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'bookName' VARCHAR(255), 'author' VARCHAR(255), 'owerID' VARCHAR(255), 'onShelf' INTEGER, 'price' VARCHAR(255), 'area' VARCHAR(255), 'publishTime' VARCHAR(255), 'introduction' VARCHAR(255), 'coverImage' VARCHAR(255))";
+        
+        BOOL res = [db executeUpdate:userList];
+        if (res) {
+            DONG_Log(@"books表创建成功");
+        } else {
+            DONG_Log(@"books表创建失败");
+        }
+    }];
+}
+
+- (BOOL)insertBook:(SHB_GoodsModel *)goodsModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSNumber *maxID = @(0);
+        FMResultSet *result = [db executeQuery:@"SELECT * FROM books"];
+        // 获取数据库中最大的ID 自增字段
+        while ([result next]) {
+            if ([maxID integerValue] < [[result stringForColumn:@"id"] integerValue]) {
+                maxID = @([[result stringForColumn:@"id"] integerValue] ) ;
+            }
+        }
+        maxID = @([maxID integerValue] + 1);
+        
+        isSuccess = [db executeUpdate:@"INSERT INTO books (id, bookName, author, owerID, onShelf, price, area, publishTime, introduction, coverImage) VALUES(?,?,?,?,?,?,?,?,?,?)", maxID, goodsModel.bookName, goodsModel.author, goodsModel.owerID, @(goodsModel.onShelf), goodsModel.price, goodsModel.area, goodsModel.publishTime, goodsModel.introduction, goodsModel.coverImage];
+    }];
+    
+    if (isSuccess) {
+        DONG_Log(@"商品插入成功：%@", goodsModel.bookName);
+    } else {
+        DONG_Log(@"商品插入失败：%@", goodsModel.bookName);
+    }
+    
+    [_dataBase close];
+    return isSuccess;
+}
+
+- (NSArray <SHB_GoodsModel *>*)queryAllBooksWithOnShelfStatus:(BOOL)onShelf {
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *res = [db executeQuery:@"SELECT * FROM books Where onShelf = ? order by publishTime desc", @(onShelf)];
+        while ([res next]) {
+            
+            SHB_GoodsModel *goodsModel  = [[SHB_GoodsModel alloc] init];
+            goodsModel.bookId           = [res stringForColumn:@"id"];
+            goodsModel.bookName         = [res stringForColumn:@"bookName"];
+            goodsModel.author           = [res stringForColumn:@"author"];
+            goodsModel.price            = [res stringForColumn:@"price"];
+            goodsModel.introduction     = [res stringForColumn:@"introduction"];
+            goodsModel.publishTime      = [res stringForColumn:@"publishTime"];
+            goodsModel.coverImage       = [res stringForColumn:@"coverImage"];
+            goodsModel.owerID           = [res stringForColumn:@"owerID"];
+            goodsModel.onShelf          = [res boolForColumn:@"onShelf"];
+            goodsModel.area             = [res stringForColumn:@"area"];
+            
+            [dataArray addObject:goodsModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+    
+}
+
+- (NSArray <SHB_GoodsModel *>*)queryAllBooksWithUserId:(NSString *)userId {
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *res = [db executeQuery:@"SELECT * FROM books Where owerID = ? order by publishTime desc", userId];
+        while ([res next]) {
+            
+            SHB_GoodsModel *goodsModel  = [[SHB_GoodsModel alloc] init];
+            goodsModel.bookId           = [res stringForColumn:@"id"];
+            goodsModel.bookName         = [res stringForColumn:@"bookName"];
+            goodsModel.author           = [res stringForColumn:@"author"];
+            goodsModel.price            = [res stringForColumn:@"price"];
+            goodsModel.introduction     = [res stringForColumn:@"introduction"];
+            goodsModel.publishTime      = [res stringForColumn:@"publishTime"];
+            goodsModel.coverImage       = [res stringForColumn:@"coverImage"];
+            goodsModel.owerID           = [res stringForColumn:@"owerID"];
+            goodsModel.onShelf          = [res boolForColumn:@"onShelf"];
+            goodsModel.area             = [res stringForColumn:@"area"];
+            
+            [dataArray addObject:goodsModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
+- (BOOL)updateBook:(SHB_GoodsModel *)goodsModel {
+    
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        // (, , author, owerID, , price, area, publishTime, introduction, coverImage)
+        isSuccess =  [db executeUpdate:@"UPDATE 'books' SET onShelf = ? WHERE id = ? ", @(goodsModel.onShelf), goodsModel.bookId];
+    }];
+    if (isSuccess) {
+        DONG_Log(@"更新商品成功：%@", goodsModel.bookName);
+    } else {
+        DONG_Log(@"更新商品失败：%@", goodsModel.bookName);
+    }
+    
+    return isSuccess;
+}
+
+- (BOOL)deleteGoodsWithGoodsModel:(SHB_GoodsModel *)goodModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        isSuccess =  [db executeUpdate:@"DELETE FROM books WHERE id = ?", goodModel.bookId];
+    }];
+    if (isSuccess) {
+        DONG_Log(@"删除商品成功：%@", goodModel.bookName);
+    } else {
+        DONG_Log(@"删除商品失败：%@", goodModel.bookName);
+    }
+    
+    return isSuccess;
+}
 
 @end

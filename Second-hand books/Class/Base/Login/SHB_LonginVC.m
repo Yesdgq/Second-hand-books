@@ -80,11 +80,12 @@
             
             ShowMessage(@"登录成功");
             
-            NSArray *array = [DataBaseManager queryUserWithNickName:UserInfoManager.nickname];
-            userModel = array.firstObject;
+            NSArray *array = [DataBaseManager queryUserWithNickName:userModel.nickName];
+            SHB_UserModel *currentUserModel = array.firstObject;
             
             UserInfoManager.isLogin = YES; // 存储登陆状态
-            UserInfoManager.userId = userModel.userId;
+            UserInfoManager.userId = currentUserModel.userId;
+            UserInfoManager.nickname = currentUserModel.nickName;
             
             // 初始化Tabbar控件
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;

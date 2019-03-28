@@ -26,7 +26,17 @@
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
 
     [self addBarItems];
+    
+    // 查询指定人的全部书
+    self.dataArray = [DataBaseManager queryAllBooksWithUserId:UserInfoManager.userId];
+    
     [self addSubviews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.dataArray = [DataBaseManager queryAllBooksWithOnShelfStatus:YES];
+    [self.tableView reloadData];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -86,12 +96,14 @@
 
 // 每个分区后多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SHB_MyGoodsCell *cell = [SHB_MyGoodsCell cellWithTableView:tableView];
+    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+    cell.goodsModel = goodsModel;
     
     return cell;
     

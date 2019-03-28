@@ -25,7 +25,14 @@
     self.navigationItem.title = @"首页";
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
     
+    
     [self addSubviews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.dataArray = [DataBaseManager queryAllBooksWithOnShelfStatus:YES];
+    [self.tableView reloadData];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -63,12 +70,14 @@
 
 // 每个分区后多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SHB_HomePageCell *cell = [SHB_HomePageCell cellWithTableView:tableView];
+    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+    cell.goodsModel = goodsModel;
     
     return cell;
     

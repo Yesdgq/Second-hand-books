@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *owerID;               //  书籍主人ID
 @property (nonatomic, copy) NSString *area;                 //  区域
 @property (nonatomic, copy) NSString *publishTime;          //  上线时间
+@property (nonatomic, assign) BOOL onShelf;                 //  是否上架
 
 @end
 

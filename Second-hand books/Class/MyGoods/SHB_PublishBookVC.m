@@ -106,33 +106,10 @@
     NSString *timeStr2 = [formatter stringFromDate:date];
     NSString *doc = [FileManageCommon GetDocumentPath];
     [FileManageCommon CreateList:doc ListName:@"picture"];
-    NSString *fileName = [NSString stringWithFormat:@"picture/%@%@", self.bookNameTF.text, timeStr2];
+    NSString *fileName = [NSString stringWithFormat:@"picture/%@%@.png", self.bookNameTF.text, timeStr2];
     NSString *filePath = [doc stringByAppendingPathComponent:fileName];
     
-    BOOL success = [self.compressData writeToFile:filePath atomically:YES];
-    if (success) {
-        
-        DONG_Log(@"图片写入成功 filePath：%@", filePath);
-    }
-    
-    // 3秒后执行以下内容  模拟登陆
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        DismissHud();
-        
-        //        BOOL isExisted = [DataBaseManager queryUserIsExistedWithNickName:self.userModel];
-        //        if (isExisted) {
-        //            ShowMessage(@"用户已存在，请换个昵称试试！");
-        //            return;
-        //        }
-        
-        ShowMessage(@"发布成功");
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
-    });
-    
-   
+    // 商品模型
     SHB_GoodsModel *goodsModel = [[SHB_GoodsModel alloc] init];
     goodsModel.bookName = self.bookNameTF.text;
     goodsModel.author = self.authorTF.text;
@@ -140,11 +117,27 @@
     goodsModel.introduction = self.bookIntroductionTV.text;
     goodsModel.publishTime = timeStr;
     goodsModel.coverImage = filePath;
+    goodsModel.owerID = UserInfoManager.userId;
+    goodsModel.onShelf = YES;           // 默认上架发布
     
-    
-    
-    
+    // 3秒后执行以下内容  模拟登陆
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        BOOL success = [self.compressData writeToFile:filePath atomically:YES];
+        if (success) {
+            DONG_Log(@"图片写入成功 filePath：%@", filePath);
+        }
+        
+        [DataBaseManager insertBook:goodsModel];
+        
+        DismissHud();
+        ShowMessage(@"发布成功");
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    });
 }
+
 
 #pragma mark - UIImagePickerControllerDelegate
 

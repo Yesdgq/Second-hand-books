@@ -45,12 +45,12 @@
 		118282C3223FF835007B974B /* SHB_MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282C2223FF835007B974B /* SHB_MineVC.m */; };
 		118282C6223FF866007B974B /* SHB_HomePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282C5223FF866007B974B /* SHB_HomePageVC.m */; };
 		118282CC223FF8BB007B974B /* SHB_TabbarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282CB223FF8BB007B974B /* SHB_TabbarConfig.m */; };
+		118E3028224CEDBC009CB650 /* SHB_MyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 118E3025224CEDBB009CB650 /* SHB_MyGoodsCell.m */; };
+		118E3029224CEDBC009CB650 /* SHB_MyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118E3026224CEDBB009CB650 /* SHB_MyGoodsCell.xib */; };
 		11AC428A22492C1A00A840BB /* UIImage+IMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AC428822492C1900A840BB /* UIImage+IMB.m */; };
 		11D7300422413C97002475A7 /* SHB_HomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7300222413C97002475A7 /* SHB_HomePageCell.m */; };
 		11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D7300322413C97002475A7 /* SHB_HomePageCell.xib */; };
 		11D7300C2241439B002475A7 /* SHB_BookDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7300B2241439B002475A7 /* SHB_BookDetailInfoVC.m */; };
-		11D730112241459E002475A7 /* SHB_MyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7300F2241459E002475A7 /* SHB_MyGoodsCell.m */; };
-		11D730122241459E002475A7 /* SHB_MyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D730102241459E002475A7 /* SHB_MyGoodsCell.xib */; };
 		11D7B6522240B83800B1AA19 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7B6502240B83800B1AA19 /* NSDate+Addition.m */; };
 		11DB957A223E893E000CB7AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DB9579223E893E000CB7AE /* AppDelegate.m */; };
 		11DB9580223E893E000CB7AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DB957E223E893E000CB7AE /* Main.storyboard */; };
@@ -136,6 +136,9 @@
 		118282C5223FF866007B974B /* SHB_HomePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_HomePageVC.m; sourceTree = "<group>"; };
 		118282CA223FF8BB007B974B /* SHB_TabbarConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_TabbarConfig.h; sourceTree = "<group>"; };
 		118282CB223FF8BB007B974B /* SHB_TabbarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_TabbarConfig.m; sourceTree = "<group>"; };
+		118E3025224CEDBB009CB650 /* SHB_MyGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHB_MyGoodsCell.m; sourceTree = "<group>"; };
+		118E3026224CEDBB009CB650 /* SHB_MyGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHB_MyGoodsCell.xib; sourceTree = "<group>"; };
+		118E3027224CEDBB009CB650 /* SHB_MyGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHB_MyGoodsCell.h; sourceTree = "<group>"; };
 		11AC428822492C1900A840BB /* UIImage+IMB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IMB.m"; sourceTree = "<group>"; };
 		11AC428922492C1900A840BB /* UIImage+IMB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IMB.h"; sourceTree = "<group>"; };
 		11D7300122413C97002475A7 /* SHB_HomePageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_HomePageCell.h; sourceTree = "<group>"; };
@@ -143,9 +146,6 @@
 		11D7300322413C97002475A7 /* SHB_HomePageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_HomePageCell.xib; sourceTree = "<group>"; };
 		11D7300A2241439B002475A7 /* SHB_BookDetailInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BookDetailInfoVC.h; sourceTree = "<group>"; };
 		11D7300B2241439B002475A7 /* SHB_BookDetailInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_BookDetailInfoVC.m; sourceTree = "<group>"; };
-		11D7300E2241459E002475A7 /* SHB_MyGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MyGoodsCell.h; sourceTree = "<group>"; };
-		11D7300F2241459E002475A7 /* SHB_MyGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_MyGoodsCell.m; sourceTree = "<group>"; };
-		11D730102241459E002475A7 /* SHB_MyGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MyGoodsCell.xib; sourceTree = "<group>"; };
 		11D7B6502240B83800B1AA19 /* NSDate+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Addition.m"; sourceTree = "<group>"; };
 		11D7B6512240B83800B1AA19 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
 		11DB9575223E893E000CB7AE /* Second-hand books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Second-hand books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -451,9 +451,9 @@
 		11D7300D2241456D002475A7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				11D7300E2241459E002475A7 /* SHB_MyGoodsCell.h */,
-				11D7300F2241459E002475A7 /* SHB_MyGoodsCell.m */,
-				11D730102241459E002475A7 /* SHB_MyGoodsCell.xib */,
+				118E3027224CEDBB009CB650 /* SHB_MyGoodsCell.h */,
+				118E3025224CEDBB009CB650 /* SHB_MyGoodsCell.m */,
+				118E3026224CEDBB009CB650 /* SHB_MyGoodsCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -582,11 +582,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118E3029224CEDBC009CB650 /* SHB_MyGoodsCell.xib in Resources */,
 				11DB9582223E893F000CB7AE /* Assets.xcassets in Resources */,
 				11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */,
 				1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */,
 				110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */,
-				11D730122241459E002475A7 /* SHB_MyGoodsCell.xib in Resources */,
 				110861BF2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib in Resources */,
 				110861C422453682002ED5A9 /* SHB_MineInfoSection2Cell.xib in Resources */,
 				1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */,
@@ -672,8 +672,8 @@
 				118282C3223FF835007B974B /* SHB_MineVC.m in Sources */,
 				118282C6223FF866007B974B /* SHB_HomePageVC.m in Sources */,
 				11270A0C223E90CB001E4A64 /* DONG_AlertShowTool.m in Sources */,
+				118E3028224CEDBC009CB650 /* SHB_MyGoodsCell.m in Sources */,
 				1142BFB42243DDD300AAFEC6 /* SHB_MineInfoCell.m in Sources */,
-				11D730112241459E002475A7 /* SHB_MyGoodsCell.m in Sources */,
 				11AC428A22492C1A00A840BB /* UIImage+IMB.m in Sources */,
 				11270A06223E908B001E4A64 /* UIColor+Addition.m in Sources */,
 				11DB9588223E893F000CB7AE /* main.m in Sources */,

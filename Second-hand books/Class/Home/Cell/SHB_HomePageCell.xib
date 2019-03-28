@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="336" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Book-PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-WH-Os9">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Book-PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="ffN-WH-Os9">
                         <rect key="frame" x="16" y="15" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="BLD-1p-qfp"/>
@@ -69,7 +69,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2019-03-15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPA-4Q-DzA">
-                        <rect key="frame" x="180" y="87" width="77" height="21"/>
+                        <rect key="frame" x="180" y="87" width="112" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,7 +83,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥2.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ec6-9o-82L">
-                        <rect key="frame" x="177" y="52" width="51" height="21"/>
+                        <rect key="frame" x="177" y="52" width="88" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +105,15 @@
                 <constraint firstItem="ffN-WH-Os9" firstAttribute="centerY" secondItem="aW0-zy-SZf" secondAttribute="centerY" id="38g-u0-dCP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
-            <point key="canvasLocation" x="150.40000000000001" y="141.22938530734635"/>
+            <connections>
+                <outlet property="authorLbl" destination="HqH-sV-CHP" id="Vca-dI-URn"/>
+                <outlet property="bookNameLbl" destination="bJH-qc-xFN" id="uYo-xV-D99"/>
+                <outlet property="coverIV" destination="ffN-WH-Os9" id="NK1-TA-IkM"/>
+                <outlet property="ownerLbl" destination="WnY-bL-qSh" id="bIf-iq-bDp"/>
+                <outlet property="priceLbl" destination="Ec6-9o-82L" id="g2D-aS-bs3"/>
+                <outlet property="publishLbl" destination="zPA-4Q-DzA" id="9C1-Bs-mLc"/>
+            </connections>
+            <point key="canvasLocation" x="236.80000000000001" y="114.24287856071965"/>
         </tableViewCell>
     </objects>
     <resources>

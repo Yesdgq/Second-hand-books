@@ -64,12 +64,59 @@
  */
 - (NSArray <SHB_UserModel *>*)queryUserWithNickName:(NSString *)nickName;
 
-
 /**
  *  更新用户信息
  *
  *  @return BOOL
  */
 - (BOOL)updateUserInfoWithUserModel:(SHB_UserModel *)userModel;
+
+/**
+ *  删除用户
+ *
+ */
+- (BOOL)deleteUserWihtUserModel:(SHB_UserModel *)userModel;
+
+
+/****************************************** 商品信息 *******************************************/
+
+/**
+ *  创建书table
+ *
+ */
+- (void)createBooksTable;
+
+/**
+ *  出入新书
+ *
+ *  @return BOOL
+ */
+- (BOOL)insertBook:(SHB_GoodsModel *)goodsModel;
+
+/**
+ *  查询所有图书
+ *
+ *  @return 返回数组<SHB_GoodsModel *>书对象
+ */
+- (NSArray <SHB_GoodsModel *>*)queryAllBooksWithOnShelfStatus:(BOOL)onShelf;
+
+/**
+ *  查询指定人所有图书
+ *
+ *  @return 返回数组<SHB_GoodsModel *>书对象
+ */
+- (NSArray <SHB_GoodsModel *>*)queryAllBooksWithUserId:(NSString *)userId;
+
+/**
+ *  更新Book
+ *
+ */
+- (BOOL)updateBook:(SHB_GoodsModel *)goodsModel;
+
+/**
+ *  删除
+ *
+ */
+- (BOOL)deleteGoodsWithGoodsModel:(SHB_GoodsModel *)goodModel;
 
 @end

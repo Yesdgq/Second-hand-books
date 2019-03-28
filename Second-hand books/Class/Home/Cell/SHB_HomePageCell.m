@@ -8,7 +8,20 @@
 
 #import "SHB_HomePageCell.h"
 
+@interface SHB_HomePageCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *coverIV;
+@property (weak, nonatomic) IBOutlet UILabel *bookNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *authorLbl;
+@property (weak, nonatomic) IBOutlet UILabel *priceLbl;
+@property (weak, nonatomic) IBOutlet UILabel *ownerLbl;
+@property (weak, nonatomic) IBOutlet UILabel *publishLbl;
+
+
+@end
+
 @implementation SHB_HomePageCell
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -29,5 +42,25 @@
     
     return cell;
 }
+
+- (void)setGoodsModel:(SHB_GoodsModel *)goodsModel {
+    
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:goodsModel.coverImage];
+    if (img) {
+        [self.coverIV setImage:img];
+    } else {
+        [self.coverIV setImage:[UIImage imageNamed:@"Book-PlaceHolder"]];
+    }
+    
+    self.bookNameLbl.text = goodsModel.bookName;
+    self.authorLbl.text = goodsModel.author;
+    self.priceLbl.text = [NSString stringWithFormat:@"￥%@", goodsModel.price];
+    self.ownerLbl.text = goodsModel.owerID;
+    self.publishLbl.text = goodsModel.publishTime;
+    
+    _goodsModel = goodsModel;
+}
+
+
 
 @end

@@ -239,20 +239,21 @@
     
     [SVProgressHUD showWithStatus:@"提交信息中..."];
     
-    BOOL success = [self.avatarData writeToFile:self.userModel.avatar atomically:YES];
-    if (success) {
-        
-        DONG_Log(@"头像写入成功");
-    }
-    
     // 3秒后执行以下内容  模拟登陆
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        DismissHud();
-        
         if ([UserInfoManager.nickname isEqualToString:self.userModel.nickName]) {
+            
+            BOOL success = [self.avatarData writeToFile:self.userModel.avatar atomically:YES];
+            if (success) {
+                
+                DONG_Log(@"头像写入成功");
+            }
          
+            // 更新数据库
             [DataBaseManager updateUserInfoWithUserModel:self.userModel];
+            
+            DismissHud();
             ShowMessage(@"修改成功");
             
             [self.navigationController popViewControllerAnimated:YES];
@@ -265,14 +266,22 @@
                 return;
             }
             
+            BOOL success = [self.avatarData writeToFile:self.userModel.avatar atomically:YES];
+            if (success) {
+                
+                DONG_Log(@"头像写入成功");
+            }
+            
+            // 更新数据库
             [DataBaseManager updateUserInfoWithUserModel:self.userModel];
+            
+            DismissHud();
             ShowMessage(@"修改成功");
             UserInfoManager.nickname = self.userModel.nickName;
             
             [self.navigationController popViewControllerAnimated:YES];
             
         }
-       
     });
     
 }

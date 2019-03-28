@@ -32,12 +32,7 @@
     [self setLaunchView];
     
     [DataBaseManager createUserTable];
-    
-    NSString *doc = [FileManageCommon GetDocumentPath];
-    [FileManageCommon CreateList:doc ListName:@"picture"];
-    NSString *filePath = [doc stringByAppendingPathComponent:@"picture"];
-    DONG_Log(@"文件路径：%@", filePath);
-    
+    [DataBaseManager createBooksTable];
     
     return YES;
 }
