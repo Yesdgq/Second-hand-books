@@ -145,9 +145,9 @@
 //    }
 //}
 
-- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewRowAction *action0 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *action0 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         
         // 1.把model相应的数据删掉
         SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
@@ -156,23 +156,29 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         [DataBaseManager deleteGoodsWithGoodsModel:goodsModel];
-        
+        [tableView setEditing:NO animated:YES];
     }];
+    action0.backgroundColor = [UIColor redColor];
     
-    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"上架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"上架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
         goodsModel.onShelf = YES;
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [DataBaseManager updateBook:goodsModel];
+        [tableView setEditing:NO animated:YES];
     }];
+    action1.backgroundColor = [UIColor greenColor];
     
-    UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"下架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"下架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
         goodsModel.onShelf = NO;
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [DataBaseManager updateBook:goodsModel];
+        [tableView setEditing:NO animated:YES];
         
     }];
+    
+    action2.backgroundColor = [UIColor blueColor];
     return @[action0, action1, action2];
 }
 
