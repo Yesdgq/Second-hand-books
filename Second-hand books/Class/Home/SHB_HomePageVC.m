@@ -95,7 +95,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
     
+    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
     SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
+    bookInfoVC.goodsModel = goodsModel;
     [self.navigationController pushViewController:bookInfoVC animated:YES];
 }
 

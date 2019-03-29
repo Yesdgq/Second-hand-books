@@ -39,6 +39,8 @@
 		115EE76D223FA3BE000FC84A /* DONG_DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE76C223FA3BE000FC84A /* DONG_DataBaseManager.m */; };
 		115EE771223FA404000FC84A /* SHB_GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE770223FA404000FC84A /* SHB_GoodsModel.m */; };
 		115EE774223FA4CE000FC84A /* SHB_UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE773223FA4CE000FC84A /* SHB_UserModel.m */; };
+		11686A98224DE126001ABDB5 /* SHB_BookDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11686A96224DE126001ABDB5 /* SHB_BookDetailCell.m */; };
+		11686A99224DE126001ABDB5 /* SHB_BookDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11686A97224DE126001ABDB5 /* SHB_BookDetailCell.xib */; };
 		118282B2223FD5A1007B974B /* SHB_LonginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282B1223FD5A1007B974B /* SHB_LonginVC.m */; };
 		118282B8223FE83F007B974B /* SHB_RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282B7223FE83F007B974B /* SHB_RegisterVC.m */; };
 		118282C0223FF81D007B974B /* SHB_MyGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282BF223FF81D007B974B /* SHB_MyGoodsVC.m */; };
@@ -124,6 +126,9 @@
 		115EE770223FA404000FC84A /* SHB_GoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_GoodsModel.m; sourceTree = "<group>"; };
 		115EE772223FA4CE000FC84A /* SHB_UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_UserModel.h; sourceTree = "<group>"; };
 		115EE773223FA4CE000FC84A /* SHB_UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_UserModel.m; sourceTree = "<group>"; };
+		11686A95224DE126001ABDB5 /* SHB_BookDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BookDetailCell.h; sourceTree = "<group>"; };
+		11686A96224DE126001ABDB5 /* SHB_BookDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_BookDetailCell.m; sourceTree = "<group>"; };
+		11686A97224DE126001ABDB5 /* SHB_BookDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_BookDetailCell.xib; sourceTree = "<group>"; };
 		118282B0223FD5A1007B974B /* SHB_LonginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_LonginVC.h; sourceTree = "<group>"; };
 		118282B1223FD5A1007B974B /* SHB_LonginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_LonginVC.m; sourceTree = "<group>"; };
 		118282B6223FE83F007B974B /* SHB_RegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_RegisterVC.h; sourceTree = "<group>"; };
@@ -417,6 +422,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		11686A94224DE0A1001ABDB5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				11686A95224DE126001ABDB5 /* SHB_BookDetailCell.h */,
+				11686A96224DE126001ABDB5 /* SHB_BookDetailCell.m */,
+				11686A97224DE126001ABDB5 /* SHB_BookDetailCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		118282AF223FD55E007B974B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +459,7 @@
 			children = (
 				11D7300A2241439B002475A7 /* SHB_BookDetailInfoVC.h */,
 				11D7300B2241439B002475A7 /* SHB_BookDetailInfoVC.m */,
+				11686A94224DE0A1001ABDB5 /* Cell */,
 			);
 			path = "BookDetailInfo 图书详情页";
 			sourceTree = "<group>";
@@ -583,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				118E3029224CEDBC009CB650 /* SHB_MyGoodsCell.xib in Resources */,
+				11686A99224DE126001ABDB5 /* SHB_BookDetailCell.xib in Resources */,
 				11DB9582223E893F000CB7AE /* Assets.xcassets in Resources */,
 				11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */,
 				1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */,
@@ -670,6 +687,7 @@
 				11E4DA25224093F100B21FA9 /* SHB_DiscoveryVC.m in Sources */,
 				115EE774223FA4CE000FC84A /* SHB_UserModel.m in Sources */,
 				118282C3223FF835007B974B /* SHB_MineVC.m in Sources */,
+				11686A98224DE126001ABDB5 /* SHB_BookDetailCell.m in Sources */,
 				118282C6223FF866007B974B /* SHB_HomePageVC.m in Sources */,
 				11270A0C223E90CB001E4A64 /* DONG_AlertShowTool.m in Sources */,
 				118E3028224CEDBC009CB650 /* SHB_MyGoodsCell.m in Sources */,

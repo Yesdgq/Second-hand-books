@@ -9,6 +9,7 @@
 #import "SHB_MyGoodsVC.h"
 #import "SHB_MyGoodsCell.h"
 #import "SHB_PublishBookVC.h"
+#import "SHB_BookDetailInfoVC.h"
 
 @interface SHB_MyGoodsVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -124,8 +125,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
     
-    //    SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
-    //    [self.navigationController pushViewController:bookInfoVC animated:YES];
+    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
+    SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
+    bookInfoVC.goodsModel = goodsModel;
+    [self.navigationController pushViewController:bookInfoVC animated:YES];
 }
 
 //// 将delete改为删除

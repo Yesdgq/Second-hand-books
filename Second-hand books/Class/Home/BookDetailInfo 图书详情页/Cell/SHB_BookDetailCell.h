@@ -1,8 +1,8 @@
 //
-//  SHB_BookDetailInfoVC.h
+//  SHB_BookDetailCell.h
 //  Second-hand books
 //
-//  Created by yesdgq on 2019/3/19.
+//  Created by yesdgq on 2019/3/29.
 //  Copyright © 2019 Yufei_Li. All rights reserved.
 //
 
@@ -11,9 +11,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SHB_BookDetailInfoVC : UIViewController
+@interface SHB_BookDetailCell : UITableViewCell
 
 @property (nonatomic, strong) SHB_GoodsModel *goodsModel;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end
 
