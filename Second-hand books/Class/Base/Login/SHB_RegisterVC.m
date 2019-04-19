@@ -67,6 +67,11 @@
         
         DismissHud();
         
+        if ([self.nickNameTF.text isEqualToString:@"admin"]) {
+            ShowMessage(@"不能使用改昵称！");
+            return;
+        }
+        
         BOOL isExisted = [DataBaseManager queryUserIsExistedWithNickName:userModel];
         
         if (isExisted) {

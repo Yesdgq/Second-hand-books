@@ -109,7 +109,7 @@ static CGFloat const CYLTabBarControllerHeight = 49;
                                 CYLTabBarItemSelectedImage : @"Goods_Selected",
                                 };
         NSDictionary *dict3 = @{
-                                CYLTabBarItemTitle : @"发现",
+                                CYLTabBarItemTitle : @"我的购买",
                                 CYLTabBarItemImage : @"Discovery",
                                 CYLTabBarItemSelectedImage : @"Discovery_Selected",
                                 };

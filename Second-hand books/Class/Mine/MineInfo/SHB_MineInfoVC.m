@@ -260,6 +260,11 @@
             
         } else {
             
+            if ([self.userModel.nickName isEqualToString:@"admin"]) {
+                ShowMessage(@"不能使用该昵称！");
+                return;
+            }
+            
             BOOL isExisted = [DataBaseManager queryUserIsExistedWithNickName:self.userModel];
             if (isExisted) {
                 ShowMessage(@"用户已存在，请换个昵称试试！");
