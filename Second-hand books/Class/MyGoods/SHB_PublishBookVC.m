@@ -141,7 +141,9 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info {
+    
+    UIImage *image = info[@"UIImagePickerControllerOriginalImage"];
     
     TOCropViewController *cropController = [[TOCropViewController alloc] initWithCroppingStyle:TOCropViewCroppingStyleDefault image:image];
     cropController.delegate = self;
@@ -167,13 +169,15 @@
     //cropController.rotateButtonsHidden = YES;
     //cropController.rotateClockwiseButtonHidden = NO;
     
-        cropController.doneButtonTitle = @"完成";
-        cropController.cancelButtonTitle = @"取消";
+    cropController.doneButtonTitle = @"完成";
+    cropController.cancelButtonTitle = @"取消";
     
-        //If profile picture, push onto the same navigation stack
-        [picker pushViewController:cropController animated:YES];
-
+    //If profile picture, push onto the same navigation stack
+    [picker pushViewController:cropController animated:YES];
+    
 }
+
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
 {

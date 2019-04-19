@@ -50,6 +50,10 @@
 		118E3028224CEDBC009CB650 /* SHB_MyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 118E3025224CEDBB009CB650 /* SHB_MyGoodsCell.m */; };
 		118E3029224CEDBC009CB650 /* SHB_MyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118E3026224CEDBB009CB650 /* SHB_MyGoodsCell.xib */; };
 		11AC428A22492C1A00A840BB /* UIImage+IMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AC428822492C1900A840BB /* UIImage+IMB.m */; };
+		11BF25852269975E003BAF5A /* SHB_BookListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF25832269975E003BAF5A /* SHB_BookListCell.m */; };
+		11BF25862269975E003BAF5A /* SHB_BookListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BF25842269975E003BAF5A /* SHB_BookListCell.xib */; };
+		11BF258A2269993C003BAF5A /* SHB_UserListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF25882269993C003BAF5A /* SHB_UserListCell.m */; };
+		11BF258B2269993C003BAF5A /* SHB_UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BF25892269993C003BAF5A /* SHB_UserListCell.xib */; };
 		11D7300422413C97002475A7 /* SHB_HomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7300222413C97002475A7 /* SHB_HomePageCell.m */; };
 		11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D7300322413C97002475A7 /* SHB_HomePageCell.xib */; };
 		11D7300C2241439B002475A7 /* SHB_BookDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7300B2241439B002475A7 /* SHB_BookDetailInfoVC.m */; };
@@ -58,6 +62,8 @@
 		11DB9580223E893E000CB7AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DB957E223E893E000CB7AE /* Main.storyboard */; };
 		11DB9582223E893F000CB7AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DB9581223E893F000CB7AE /* Assets.xcassets */; };
 		11DB9588223E893F000CB7AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DB9587223E893F000CB7AE /* main.m */; };
+		11E0FA352268C3AB000158CB /* SHB_UserListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E0FA342268C3AB000158CB /* SHB_UserListVC.m */; };
+		11E0FA382268C3C0000158CB /* SHB_BookListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E0FA372268C3C0000158CB /* SHB_BookListVC.m */; };
 		11E4DA25224093F100B21FA9 /* SHB_DiscoveryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E4DA24224093F000B21FA9 /* SHB_DiscoveryVC.m */; };
 		11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E4DA292240945200B21FA9 /* UIViewController+Addition.m */; };
 		3A09A01942BB4F991059D466 /* Pods_Second_hand_books.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81D6991A0127141F27430 /* Pods_Second_hand_books.framework */; };
@@ -146,6 +152,12 @@
 		118E3027224CEDBB009CB650 /* SHB_MyGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHB_MyGoodsCell.h; sourceTree = "<group>"; };
 		11AC428822492C1900A840BB /* UIImage+IMB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IMB.m"; sourceTree = "<group>"; };
 		11AC428922492C1900A840BB /* UIImage+IMB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IMB.h"; sourceTree = "<group>"; };
+		11BF25822269975E003BAF5A /* SHB_BookListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BookListCell.h; sourceTree = "<group>"; };
+		11BF25832269975E003BAF5A /* SHB_BookListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_BookListCell.m; sourceTree = "<group>"; };
+		11BF25842269975E003BAF5A /* SHB_BookListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_BookListCell.xib; sourceTree = "<group>"; };
+		11BF25872269993C003BAF5A /* SHB_UserListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_UserListCell.h; sourceTree = "<group>"; };
+		11BF25882269993C003BAF5A /* SHB_UserListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_UserListCell.m; sourceTree = "<group>"; };
+		11BF25892269993C003BAF5A /* SHB_UserListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_UserListCell.xib; sourceTree = "<group>"; };
 		11D7300122413C97002475A7 /* SHB_HomePageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_HomePageCell.h; sourceTree = "<group>"; };
 		11D7300222413C97002475A7 /* SHB_HomePageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_HomePageCell.m; sourceTree = "<group>"; };
 		11D7300322413C97002475A7 /* SHB_HomePageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_HomePageCell.xib; sourceTree = "<group>"; };
@@ -160,6 +172,10 @@
 		11DB9581223E893F000CB7AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11DB9586223E893F000CB7AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11DB9587223E893F000CB7AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		11E0FA332268C3AB000158CB /* SHB_UserListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_UserListVC.h; sourceTree = "<group>"; };
+		11E0FA342268C3AB000158CB /* SHB_UserListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_UserListVC.m; sourceTree = "<group>"; };
+		11E0FA362268C3C0000158CB /* SHB_BookListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BookListVC.h; sourceTree = "<group>"; };
+		11E0FA372268C3C0000158CB /* SHB_BookListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_BookListVC.m; sourceTree = "<group>"; };
 		11E4DA23224093F000B21FA9 /* SHB_DiscoveryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHB_DiscoveryVC.h; sourceTree = "<group>"; };
 		11E4DA24224093F000B21FA9 /* SHB_DiscoveryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHB_DiscoveryVC.m; sourceTree = "<group>"; };
 		11E4DA292240945200B21FA9 /* UIViewController+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Addition.m"; sourceTree = "<group>"; };
@@ -221,6 +237,7 @@
 			children = (
 				11270A40223E9DC1001E4A64 /* Base */,
 				11270A4C223EA6E2001E4A64 /* Tabbar */,
+				11E0FA322268C371000158CB /* 用户管理 */,
 				118282AF223FD55E007B974B /* Login */,
 				115EE76E223FA3D6000FC84A /* Model */,
 				11270A4B223EA6DF001E4A64 /* Home */,
@@ -444,6 +461,19 @@
 			path = Base/Login;
 			sourceTree = "<group>";
 		};
+		11BF258122699721003BAF5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11BF25822269975E003BAF5A /* SHB_BookListCell.h */,
+				11BF25832269975E003BAF5A /* SHB_BookListCell.m */,
+				11BF25842269975E003BAF5A /* SHB_BookListCell.xib */,
+				11BF25872269993C003BAF5A /* SHB_UserListCell.h */,
+				11BF25882269993C003BAF5A /* SHB_UserListCell.m */,
+				11BF25892269993C003BAF5A /* SHB_UserListCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		11D7300022413C59002475A7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +541,18 @@
 				11270A02223E8EA6001E4A64 /* PrefixHeader.pch */,
 			);
 			path = "Second-hand books";
+			sourceTree = "<group>";
+		};
+		11E0FA322268C371000158CB /* 用户管理 */ = {
+			isa = PBXGroup;
+			children = (
+				11E0FA332268C3AB000158CB /* SHB_UserListVC.h */,
+				11E0FA342268C3AB000158CB /* SHB_UserListVC.m */,
+				11E0FA362268C3C0000158CB /* SHB_BookListVC.h */,
+				11E0FA372268C3C0000158CB /* SHB_BookListVC.m */,
+				11BF258122699721003BAF5A /* View */,
+			);
+			path = "用户管理";
 			sourceTree = "<group>";
 		};
 		11E4DA22224093F000B21FA9 /* Discovery */ = {
@@ -598,9 +640,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BF258B2269993C003BAF5A /* SHB_UserListCell.xib in Resources */,
 				118E3029224CEDBC009CB650 /* SHB_MyGoodsCell.xib in Resources */,
 				11686A99224DE126001ABDB5 /* SHB_BookDetailCell.xib in Resources */,
 				11DB9582223E893F000CB7AE /* Assets.xcassets in Resources */,
+				11BF25862269975E003BAF5A /* SHB_BookListCell.xib in Resources */,
 				11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */,
 				1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */,
 				110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */,
@@ -695,14 +739,18 @@
 				11AC428A22492C1A00A840BB /* UIImage+IMB.m in Sources */,
 				11270A06223E908B001E4A64 /* UIColor+Addition.m in Sources */,
 				11DB9588223E893F000CB7AE /* main.m in Sources */,
+				11BF25852269975E003BAF5A /* SHB_BookListCell.m in Sources */,
 				1142BFAF2243DDC000AAFEC6 /* SHB_MineOtherCell.m in Sources */,
 				118282CC223FF8BB007B974B /* SHB_TabbarConfig.m in Sources */,
 				11270A43223E9DE5001E4A64 /* SHB_BaseNavigationController.m in Sources */,
+				11BF258A2269993C003BAF5A /* SHB_UserListCell.m in Sources */,
 				11270A0F223E910A001E4A64 /* UIWindow+Addition.m in Sources */,
 				11270A09223E90B1001E4A64 /* FileManageCommon.m in Sources */,
 				11270A16223E91F1001E4A64 /* SHB_UserInfoManager.m in Sources */,
 				11270A2B223E9861001E4A64 /* NSDictionary+Addition.m in Sources */,
+				11E0FA352268C3AB000158CB /* SHB_UserListVC.m in Sources */,
 				11DB957A223E893E000CB7AE /* AppDelegate.m in Sources */,
+				11E0FA382268C3C0000158CB /* SHB_BookListVC.m in Sources */,
 				1130755022467FDA005DEA3E /* SHB_AboutVC.m in Sources */,
 				111979A22249D63E006B1F0A /* UIImage+Compress.m in Sources */,
 				11270A39223E98DD001E4A64 /* DesEncrypt.m in Sources */,

@@ -203,6 +203,29 @@
     return dataArray;
 }
 
+- (NSArray <SHB_UserModel *>*)queryAllUsers {
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *sqlStr = [NSString stringWithFormat:@"SELECT * FROM userList"];
+        FMResultSet *res = [db executeQuery:sqlStr];
+        while ([res next]) {
+            SHB_UserModel *userModel   = [[SHB_UserModel alloc] init];
+            userModel.userId           = [NSString stringWithFormat:@"%d", [res intForColumn:@"id"]];
+            userModel.name             = [res stringForColumn:@"name"];
+            userModel.nickName         = [res stringForColumn:@"nickName"];
+            userModel.gender           = [res stringForColumn:@"gender"];
+            userModel.mobilePhone      = [res stringForColumn:@"mobilePhone"];
+            userModel.avatar           = [res stringForColumn:@"avatar"];
+            userModel.personalProfile  = [res stringForColumn:@"personalProfile"];
+            
+            [dataArray addObject:userModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
 - (BOOL)updateUserInfoWithUserModel:(SHB_UserModel *)userModel {
     __block BOOL isSuccess;
     [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
@@ -357,6 +380,109 @@
     }
     
     return isSuccess;
+}
+
+- (NSArray <SHB_GoodsModel *>*)queryAllBooks {
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *res = [db executeQuery:@"SELECT * FROM books order by publishTime desc"];
+        while ([res next]) {
+            
+            SHB_GoodsModel *goodsModel  = [[SHB_GoodsModel alloc] init];
+            goodsModel.bookId           = [res stringForColumn:@"id"];
+            goodsModel.bookName         = [res stringForColumn:@"bookName"];
+            goodsModel.author           = [res stringForColumn:@"author"];
+            goodsModel.price            = [res stringForColumn:@"price"];
+            goodsModel.introduction     = [res stringForColumn:@"introduction"];
+            goodsModel.publishTime      = [res stringForColumn:@"publishTime"];
+            goodsModel.coverImage       = [res stringForColumn:@"coverImage"];
+            goodsModel.owerID           = [res stringForColumn:@"owerID"];
+            goodsModel.onShelf          = [res boolForColumn:@"onShelf"];
+            goodsModel.area             = [res stringForColumn:@"area"];
+            
+            [dataArray addObject:goodsModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
+
+/****************************************** 商品购买 *******************************************/
+
+- (void)createBooksBuyingTable {
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        // 初始化数据表
+        NSString *userList = @"CREATE TABLE 'booksBuyingTable' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'bookId' INTEGER, 'userId' INTEGER, 'buyTime' VARCHAR(255)";
+        
+        BOOL res = [db executeUpdate:userList];
+        if (res) {
+            DONG_Log(@"booksBuyingTable表创建成功");
+        } else {
+            DONG_Log(@"booksBuyingTable表创建失败");
+        }
+    }];
+}
+
+- (BOOL)insertBook:(SHB_GoodsModel *)goodsModel userId:(NSString *)userId {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSNumber *maxID = @(0);
+        FMResultSet *result = [db executeQuery:@"SELECT * FROM booksBuyingTable"];
+        // 获取数据库中最大的ID 自增字段
+        while ([result next]) {
+            if ([maxID integerValue] < [[result stringForColumn:@"id"] integerValue]) {
+                maxID = @([[result stringForColumn:@"id"] integerValue] ) ;
+            }
+        }
+        maxID = @([maxID integerValue] + 1);
+        
+        // 格林尼治时间
+        NSDate *date = [NSDate date];
+        // 格式化日期格式
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        // 设置显示的格式
+        [formatter setDateFormat:@"YYYY.MM.dd HH:mm:ss"];
+        NSString *timeStr = [formatter stringFromDate:date];
+        
+        isSuccess = [db executeUpdate:@"INSERT INTO booksBuyingTable (id, bookId, userId, buyTime) VALUES(?,?,?,?)", maxID, goodsModel.bookId, userId, timeStr];
+    }];
+    
+    if (isSuccess) {
+        DONG_Log(@"购买成功：%@", goodsModel.bookName);
+    } else {
+        DONG_Log(@"购买失败：%@", goodsModel.bookName);
+    }
+    
+    [_dataBase close];
+    return isSuccess;
+}
+
+- (NSArray <SHB_GoodsModel *>*)queryBooksBoughtWithUser:(SHB_UserModel *)userModel {
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *res = [db executeQuery:@"SELECT * FROM booksBuyingTable, books WHERE booksBuyingTable.bookId = books.id AND booksBuyingTable.userId = ?", userModel.userId];
+        while ([res next]) {
+            SHB_GoodsModel *goodsModel  = [[SHB_GoodsModel alloc] init];
+            goodsModel.bookId           = [res stringForColumn:@"id"];
+            goodsModel.bookName         = [res stringForColumn:@"bookName"];
+            goodsModel.author           = [res stringForColumn:@"author"];
+            goodsModel.price            = [res stringForColumn:@"price"];
+            goodsModel.introduction     = [res stringForColumn:@"introduction"];
+            goodsModel.publishTime      = [res stringForColumn:@"publishTime"];
+            goodsModel.coverImage       = [res stringForColumn:@"coverImage"];
+            goodsModel.owerID           = [res stringForColumn:@"owerID"];
+            goodsModel.onShelf          = [res boolForColumn:@"onShelf"];
+            goodsModel.area             = [res stringForColumn:@"area"];
+            
+            [dataArray addObject:goodsModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
 }
 
 @end

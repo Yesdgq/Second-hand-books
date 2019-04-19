@@ -65,6 +65,12 @@
 - (NSArray <SHB_UserModel *>*)queryUserWithNickName:(NSString *)nickName;
 
 /**
+ *  查询所有用户
+ *
+ */
+- (NSArray <SHB_UserModel *>*)queryAllUsers;
+
+/**
  *  更新用户信息
  *
  *  @return BOOL
@@ -118,5 +124,33 @@
  *
  */
 - (BOOL)deleteGoodsWithGoodsModel:(SHB_GoodsModel *)goodModel;
+
+/**
+ *  查询所有商品
+ *
+ */
+- (NSArray <SHB_GoodsModel *>*)queryAllBooks;
+
+/****************************************** 商品购买 *******************************************/
+
+/**
+ *  创建购买记录table
+ *
+ */
+- (void)createBooksBuyingTable;
+
+/**
+ *  买书
+ *
+ *  @return BOOL
+ */
+- (BOOL)insertBook:(SHB_GoodsModel *)goodsModel userId:(NSString *)userId;
+
+/**
+ *  查询已经买的书
+ *
+ *  @return BOOL
+ */
+- (NSArray <SHB_GoodsModel *>*)queryBooksBoughtWithUser:(SHB_UserModel *)userModel;
 
 @end

@@ -12,6 +12,8 @@
 #import "SHB_MineVC.h"
 #import "SHB_DiscoveryVC.h"
 #import "SHB_BaseNavigationController.h"
+#import "SHB_BookListVC.h"
+#import "SHB_UserListVC.h"
 
 static CGFloat const CYLTabBarControllerHeight = 49;
 
@@ -48,43 +50,78 @@ static CGFloat const CYLTabBarControllerHeight = 49;
 }
 
 - (NSArray *)viewControllers {
-    SHB_HomePageVC *homePageVC = [[SHB_HomePageVC alloc] init];
-    UIViewController *vc1 = [[SHB_BaseNavigationController alloc] initWithRootViewController:homePageVC];
-    SHB_MyGoodsVC *goodsVC = [[SHB_MyGoodsVC alloc] init];
-    UIViewController *vc2 = [[SHB_BaseNavigationController alloc] initWithRootViewController:goodsVC];
-    SHB_DiscoveryVC *discoveryVC = [[SHB_DiscoveryVC alloc] init];
-    UIViewController *vc3 = [[SHB_BaseNavigationController alloc] initWithRootViewController:discoveryVC];
-    SHB_MineVC *mineVC = [[SHB_MineVC alloc] init];
-    UIViewController *vc4 = [[SHB_BaseNavigationController alloc] initWithRootViewController:mineVC];
-
-    NSArray *viewControllers = @[vc1, vc2, vc3, vc4 ];
-    return viewControllers;
+    
+    if ([UserInfoManager.nickname isEqualToString:@"admin"]) {
+        
+        SHB_UserListVC *userListVC = [[SHB_UserListVC alloc] init];
+        UIViewController *vc1 = [[SHB_BaseNavigationController alloc] initWithRootViewController:userListVC];
+        SHB_BookListVC *bookListVC = [[SHB_BookListVC alloc] init];
+        UIViewController *vc2 = [[SHB_BaseNavigationController alloc] initWithRootViewController:bookListVC];
+        
+        NSArray *viewControllers = @[vc1, vc2];
+        return viewControllers;
+        
+    } else {
+        
+        SHB_HomePageVC *homePageVC = [[SHB_HomePageVC alloc] init];
+        UIViewController *vc1 = [[SHB_BaseNavigationController alloc] initWithRootViewController:homePageVC];
+        SHB_MyGoodsVC *goodsVC = [[SHB_MyGoodsVC alloc] init];
+        UIViewController *vc2 = [[SHB_BaseNavigationController alloc] initWithRootViewController:goodsVC];
+        SHB_DiscoveryVC *discoveryVC = [[SHB_DiscoveryVC alloc] init];
+        UIViewController *vc3 = [[SHB_BaseNavigationController alloc] initWithRootViewController:discoveryVC];
+        SHB_MineVC *mineVC = [[SHB_MineVC alloc] init];
+        UIViewController *vc4 = [[SHB_BaseNavigationController alloc] initWithRootViewController:mineVC];
+        
+        NSArray *viewControllers = @[vc1, vc2, vc3, vc4];
+        return viewControllers;
+    }
+    
 }
 
 - (NSArray *)tabBarItemsAttributesForController {
-    NSDictionary *dict1 = @{
-                            CYLTabBarItemTitle : @"首页",
-                            CYLTabBarItemImage : @"HomePage",
-                            CYLTabBarItemSelectedImage : @"HomePage_Selected",
-                            };
-    NSDictionary *dict2 = @{
-                            CYLTabBarItemTitle : @"我的发布",
-                            CYLTabBarItemImage : @"Goods",
-                            CYLTabBarItemSelectedImage : @"Goods_Selected",
-                            };
-    NSDictionary *dict3 = @{
-                            CYLTabBarItemTitle : @"发现",
-                            CYLTabBarItemImage : @"Discovery",
-                            CYLTabBarItemSelectedImage : @"Discovery_Selected",
-                            };
-    NSDictionary *dict4 = @{
-                            CYLTabBarItemTitle : @"我的",
-                            CYLTabBarItemImage : @"Mine",
-                            CYLTabBarItemSelectedImage : @"Mine_Selected",
-                            };
     
-    NSArray *tabBarItemsAttributes = @[dict1, dict2, dict3, dict4];
-    return tabBarItemsAttributes;
+    if ([UserInfoManager.nickname isEqualToString:@"admin"]) {
+        
+        NSDictionary *dict1 = @{
+                                CYLTabBarItemTitle : @"用户管理",
+                                CYLTabBarItemImage : @"Mine",
+                                CYLTabBarItemSelectedImage : @"Mine_Selected",
+                                };
+        NSDictionary *dict2 = @{
+                                CYLTabBarItemTitle : @"图书管理",
+                                CYLTabBarItemImage : @"Goods",
+                                CYLTabBarItemSelectedImage : @"Goods_Selected",
+                                };
+        
+        NSArray *tabBarItemsAttributes = @[dict1, dict2];
+        return tabBarItemsAttributes;
+        
+    } else {
+        
+        NSDictionary *dict1 = @{
+                                CYLTabBarItemTitle : @"首页",
+                                CYLTabBarItemImage : @"HomePage",
+                                CYLTabBarItemSelectedImage : @"HomePage_Selected",
+                                };
+        NSDictionary *dict2 = @{
+                                CYLTabBarItemTitle : @"我的发布",
+                                CYLTabBarItemImage : @"Goods",
+                                CYLTabBarItemSelectedImage : @"Goods_Selected",
+                                };
+        NSDictionary *dict3 = @{
+                                CYLTabBarItemTitle : @"发现",
+                                CYLTabBarItemImage : @"Discovery",
+                                CYLTabBarItemSelectedImage : @"Discovery_Selected",
+                                };
+        NSDictionary *dict4 = @{
+                                CYLTabBarItemTitle : @"我的",
+                                CYLTabBarItemImage : @"Mine",
+                                CYLTabBarItemSelectedImage : @"Mine_Selected",
+                                };
+        
+        NSArray *tabBarItemsAttributes = @[dict1, dict2, dict3, dict4];
+        return tabBarItemsAttributes;
+    }
 }
 
 // 更多TabBar自定义设置：比如：tabBarItem 的选中和不选中文字和背景图片属性、tabbar 背景图片属性等等

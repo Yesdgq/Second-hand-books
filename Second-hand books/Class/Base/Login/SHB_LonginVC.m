@@ -73,28 +73,45 @@
         
         DismissHud();
         
-        // 用昵称和密码去数据库查询  返回YES登录成功  返回NO登录失败
-        BOOL success = [DataBaseManager whetherLoginSuccessWithUser:userModel];
-        
-        if (success) {
+        if ([self.nickNameTF.text isEqualToString:@"admin"]) {
             
-            ShowMessage(@"登录成功");
-            
-            NSArray *array = [DataBaseManager queryUserWithNickName:userModel.nickName];
-            SHB_UserModel *currentUserModel = array.firstObject;
-            
-            UserInfoManager.isLogin = YES; // 存储登陆状态
-            UserInfoManager.userId = currentUserModel.userId;
-            UserInfoManager.nickname = currentUserModel.nickName;
-            
-            // 初始化Tabbar控件
-            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            [appDelegate initializeTabbar];
+            if ([self.passwordTF.text isEqualToString:@"admin"]) {
+                UserInfoManager.isLogin = YES; // 存储登陆状态
+                UserInfoManager.nickname = self.nickNameTF.text;
+                
+                // 初始化Tabbar控件
+                AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                [appDelegate initializeTabbar];
+                
+            } else {
+                ShowMessage(@"用户名或密码错误");
+            }
             
         } else {
             
-            DONG_Log(@"用户名或密码错误");
-            ShowMessage(@"用户名或密码错误");
+            // 用昵称和密码去数据库查询  返回YES登录成功  返回NO登录失败
+            BOOL success = [DataBaseManager whetherLoginSuccessWithUser:userModel];
+            
+            if (success) {
+                
+                ShowMessage(@"登录成功");
+                
+                NSArray *array = [DataBaseManager queryUserWithNickName:userModel.nickName];
+                SHB_UserModel *currentUserModel = array.firstObject;
+                
+                UserInfoManager.isLogin = YES; // 存储登陆状态
+                UserInfoManager.userId = currentUserModel.userId;
+                UserInfoManager.nickname = currentUserModel.nickName;
+                
+                // 初始化Tabbar控件
+                AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                [appDelegate initializeTabbar];
+                
+            } else {
+                
+                DONG_Log(@"用户名或密码错误");
+                ShowMessage(@"用户名或密码错误");
+            }
         }
     });
     
