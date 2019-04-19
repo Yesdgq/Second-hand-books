@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SHB_GoodsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SHB_BookListCell : UITableViewCell
+
+@property (nonatomic, strong) SHB_GoodsModel *goodsModel;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end
 
