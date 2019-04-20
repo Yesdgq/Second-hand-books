@@ -14,6 +14,8 @@
 #import "SHB_MineInfoVC.h"
 #import "SHB_AboutVC.h"
 #import "SHB_UserModel.h"
+#import "SHB_DiscoveryVC.h"
+#import "SHB_MyGoodsVC.h"
 
 
 @interface SHB_MineVC () <UITableViewDelegate, UITableViewDataSource>
@@ -175,6 +177,19 @@
             
         } else if (indexPath.row ==1) {
             ShowMessage(@"当前已是最新版本");
+        } 
+    } else if (indexPath.section == 2) {
+        
+        if (indexPath.row == 0) {
+            
+            SHB_MyGoodsVC *myGoodsVC  = [[SHB_MyGoodsVC alloc] init];
+            [self.navigationController pushViewController:myGoodsVC animated:YES];
+            
+        } else if (indexPath.row ==1) {
+            
+            SHB_DiscoveryVC *discoveryVC  = [[SHB_DiscoveryVC alloc] init];
+            [self.navigationController pushViewController:discoveryVC animated:YES];
+            
         }
     }
 }

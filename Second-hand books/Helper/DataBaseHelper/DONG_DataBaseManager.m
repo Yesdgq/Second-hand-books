@@ -415,7 +415,7 @@
 - (void)createBooksBuyingTable {
     [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
         // 初始化数据表
-        NSString *userList = @"CREATE TABLE 'booksBuyingTable' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'bookId' INTEGER, 'userId' INTEGER, 'buyTime' VARCHAR(255)";
+        NSString *userList = @"CREATE TABLE 'booksBuyingTable' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'bookId' INTEGER, 'userId' INTEGER, 'buyTime' VARCHAR(255))";
         
         BOOL res = [db executeUpdate:userList];
         if (res) {

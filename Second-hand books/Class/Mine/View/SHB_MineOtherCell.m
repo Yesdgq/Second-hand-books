@@ -57,12 +57,12 @@
         if (indexPath.row == 0) {
             
             [self.leftIV setImage:[UIImage imageNamed:@"NoDistrub"]];
-            self.titleLbl.text = @"勿扰";
+            self.titleLbl.text = @"我的发布";
             
         } else if (indexPath.row == 1) {
             
             [self.leftIV setImage:[UIImage imageNamed:@"Share"]];
-            self.titleLbl.text = @"分享";
+            self.titleLbl.text = @"我的购买";
             
         }
     }

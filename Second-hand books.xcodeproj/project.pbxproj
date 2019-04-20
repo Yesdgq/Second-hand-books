@@ -30,6 +30,8 @@
 		11270A38223E98DD001E4A64 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A34223E98DD001E4A64 /* GTMBase64.m */; };
 		11270A39223E98DD001E4A64 /* DesEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A35223E98DD001E4A64 /* DesEncrypt.m */; };
 		11270A43223E9DE5001E4A64 /* SHB_BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A42223E9DE5001E4A64 /* SHB_BaseNavigationController.m */; };
+		1127FBF5226B6A3D0011F638 /* SHB_DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1127FBF3226B6A3D0011F638 /* SHB_DiscoveryCell.m */; };
+		1127FBF6226B6A3D0011F638 /* SHB_DiscoveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1127FBF4226B6A3D0011F638 /* SHB_DiscoveryCell.xib */; };
 		1130755022467FDA005DEA3E /* SHB_AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1130754F22467FDA005DEA3E /* SHB_AboutVC.m */; };
 		1142BFAF2243DDC000AAFEC6 /* SHB_MineOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1142BFAD2243DDC000AAFEC6 /* SHB_MineOtherCell.m */; };
 		1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1142BFAE2243DDC000AAFEC6 /* SHB_MineOtherCell.xib */; };
@@ -116,6 +118,9 @@
 		11270A37223E98DD001E4A64 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		11270A41223E9DE5001E4A64 /* SHB_BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BaseNavigationController.h; sourceTree = "<group>"; };
 		11270A42223E9DE5001E4A64 /* SHB_BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_BaseNavigationController.m; sourceTree = "<group>"; };
+		1127FBF2226B6A3D0011F638 /* SHB_DiscoveryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_DiscoveryCell.h; sourceTree = "<group>"; };
+		1127FBF3226B6A3D0011F638 /* SHB_DiscoveryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_DiscoveryCell.m; sourceTree = "<group>"; };
+		1127FBF4226B6A3D0011F638 /* SHB_DiscoveryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_DiscoveryCell.xib; sourceTree = "<group>"; };
 		1130754E22467FDA005DEA3E /* SHB_AboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_AboutVC.h; sourceTree = "<group>"; };
 		1130754F22467FDA005DEA3E /* SHB_AboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_AboutVC.m; sourceTree = "<group>"; };
 		1142BFAC2243DDC000AAFEC6 /* SHB_MineOtherCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_MineOtherCell.h; sourceTree = "<group>"; };
@@ -406,6 +411,16 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
+		1127FBF1226B6A150011F638 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1127FBF2226B6A3D0011F638 /* SHB_DiscoveryCell.h */,
+				1127FBF3226B6A3D0011F638 /* SHB_DiscoveryCell.m */,
+				1127FBF4226B6A3D0011F638 /* SHB_DiscoveryCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1142BFA82243DD6A00AAFEC6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +575,7 @@
 			children = (
 				11E4DA23224093F000B21FA9 /* SHB_DiscoveryVC.h */,
 				11E4DA24224093F000B21FA9 /* SHB_DiscoveryVC.m */,
+				1127FBF1226B6A150011F638 /* View */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -648,6 +664,7 @@
 				11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */,
 				1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */,
 				110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */,
+				1127FBF6226B6A3D0011F638 /* SHB_DiscoveryCell.xib in Resources */,
 				110861BF2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib in Resources */,
 				110861C422453682002ED5A9 /* SHB_MineInfoSection2Cell.xib in Resources */,
 				1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */,
@@ -757,6 +774,7 @@
 				118282B8223FE83F007B974B /* SHB_RegisterVC.m in Sources */,
 				115EE771223FA404000FC84A /* SHB_GoodsModel.m in Sources */,
 				110861C822453693002ED5A9 /* SHB_MineInfoSection0Cell.m in Sources */,
+				1127FBF5226B6A3D0011F638 /* SHB_DiscoveryCell.m in Sources */,
 				11270A1E223E983F001E4A64 /* UIImage+GIFImage.m in Sources */,
 				11270A1B223E979C001E4A64 /* SHB_CoreToolCenter.m in Sources */,
 				118282C0223FF81D007B974B /* SHB_MyGoodsVC.m in Sources */,

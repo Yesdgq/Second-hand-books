@@ -106,6 +106,14 @@ static const CGFloat kContentIndent = 0.f;
 
 // 买书
 - (void)buyTheBook:(UIButton *)sender {
+    [SVProgressHUD showWithStatus:@"提交中..."];
+    
+    // 3秒后执行以下内容  模拟登陆
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        DismissHud();
+        [DataBaseManager insertBook:self.goodsModel userId:UserInfoManager.userId];
+        ShowMessage(@"购买成功");
+    });
     
 }
 

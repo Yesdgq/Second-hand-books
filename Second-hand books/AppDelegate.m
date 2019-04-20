@@ -33,6 +33,7 @@
     
     [DataBaseManager createUserTable];
     [DataBaseManager createBooksTable];
+    [DataBaseManager createBooksBuyingTable];
     
     return YES;
 }
