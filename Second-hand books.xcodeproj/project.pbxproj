@@ -38,6 +38,11 @@
 		1142BFB42243DDD300AAFEC6 /* SHB_MineInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1142BFB22243DDD300AAFEC6 /* SHB_MineInfoCell.m */; };
 		1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1142BFB32243DDD300AAFEC6 /* SHB_MineInfoCell.xib */; };
 		115538B7224BC3100003007F /* SHB_PublishBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 115538B6224BC3100003007F /* SHB_PublishBookVC.m */; };
+		1157D987227033760070A47C /* SHB_PublicCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1157D986227033760070A47C /* SHB_PublicCommentVC.m */; };
+		1157D98B2270464F0070A47C /* SHB_CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1157D98A2270464F0070A47C /* SHB_CommentModel.m */; };
+		1157D991227054950070A47C /* SHB_CommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1157D990227054950070A47C /* SHB_CommentList.m */; };
+		1157D995227058540070A47C /* SHB_CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1157D993227058540070A47C /* SHB_CommentCell.m */; };
+		1157D996227058540070A47C /* SHB_CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1157D994227058540070A47C /* SHB_CommentCell.xib */; };
 		115EE76D223FA3BE000FC84A /* DONG_DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE76C223FA3BE000FC84A /* DONG_DataBaseManager.m */; };
 		115EE771223FA404000FC84A /* SHB_GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE770223FA404000FC84A /* SHB_GoodsModel.m */; };
 		115EE774223FA4CE000FC84A /* SHB_UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 115EE773223FA4CE000FC84A /* SHB_UserModel.m */; };
@@ -131,6 +136,15 @@
 		1142BFB32243DDD300AAFEC6 /* SHB_MineInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineInfoCell.xib; sourceTree = "<group>"; };
 		115538B5224BC3100003007F /* SHB_PublishBookVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_PublishBookVC.h; sourceTree = "<group>"; };
 		115538B6224BC3100003007F /* SHB_PublishBookVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_PublishBookVC.m; sourceTree = "<group>"; };
+		1157D985227033760070A47C /* SHB_PublicCommentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_PublicCommentVC.h; sourceTree = "<group>"; };
+		1157D986227033760070A47C /* SHB_PublicCommentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_PublicCommentVC.m; sourceTree = "<group>"; };
+		1157D9892270464F0070A47C /* SHB_CommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_CommentModel.h; sourceTree = "<group>"; };
+		1157D98A2270464F0070A47C /* SHB_CommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_CommentModel.m; sourceTree = "<group>"; };
+		1157D98F227054950070A47C /* SHB_CommentList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_CommentList.h; sourceTree = "<group>"; };
+		1157D990227054950070A47C /* SHB_CommentList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_CommentList.m; sourceTree = "<group>"; };
+		1157D992227058540070A47C /* SHB_CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_CommentCell.h; sourceTree = "<group>"; };
+		1157D993227058540070A47C /* SHB_CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_CommentCell.m; sourceTree = "<group>"; };
+		1157D994227058540070A47C /* SHB_CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_CommentCell.xib; sourceTree = "<group>"; };
 		115EE76B223FA3BE000FC84A /* DONG_DataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DONG_DataBaseManager.h; sourceTree = "<group>"; };
 		115EE76C223FA3BE000FC84A /* DONG_DataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DONG_DataBaseManager.m; sourceTree = "<group>"; };
 		115EE76F223FA404000FC84A /* SHB_GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_GoodsModel.h; sourceTree = "<group>"; };
@@ -246,6 +260,7 @@
 				118282AF223FD55E007B974B /* Login */,
 				115EE76E223FA3D6000FC84A /* Model */,
 				11270A4B223EA6DF001E4A64 /* Home */,
+				1157D981227032520070A47C /* Public Comment */,
 				11270A49223EA6D9001E4A64 /* MyGoods */,
 				11E4DA22224093F000B21FA9 /* Discovery */,
 				11270A4A223EA6DC001E4A64 /* Mine */,
@@ -434,6 +449,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1157D981227032520070A47C /* Public Comment */ = {
+			isa = PBXGroup;
+			children = (
+				1157D985227033760070A47C /* SHB_PublicCommentVC.h */,
+				1157D986227033760070A47C /* SHB_PublicCommentVC.m */,
+				1157D988227046300070A47C /* Model */,
+			);
+			path = "Public Comment";
+			sourceTree = "<group>";
+		};
+		1157D988227046300070A47C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1157D9892270464F0070A47C /* SHB_CommentModel.h */,
+				1157D98A2270464F0070A47C /* SHB_CommentModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		115EE76A223FA286000FC84A /* DataBaseHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +519,9 @@
 				11BF25872269993C003BAF5A /* SHB_UserListCell.h */,
 				11BF25882269993C003BAF5A /* SHB_UserListCell.m */,
 				11BF25892269993C003BAF5A /* SHB_UserListCell.xib */,
+				1157D992227058540070A47C /* SHB_CommentCell.h */,
+				1157D993227058540070A47C /* SHB_CommentCell.m */,
+				1157D994227058540070A47C /* SHB_CommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -565,6 +602,8 @@
 				11E0FA342268C3AB000158CB /* SHB_UserListVC.m */,
 				11E0FA362268C3C0000158CB /* SHB_BookListVC.h */,
 				11E0FA372268C3C0000158CB /* SHB_BookListVC.m */,
+				1157D98F227054950070A47C /* SHB_CommentList.h */,
+				1157D990227054950070A47C /* SHB_CommentList.m */,
 				11BF258122699721003BAF5A /* View */,
 			);
 			path = "用户管理";
@@ -669,6 +708,7 @@
 				110861C422453682002ED5A9 /* SHB_MineInfoSection2Cell.xib in Resources */,
 				1142BFB02243DDC000AAFEC6 /* SHB_MineOtherCell.xib in Resources */,
 				11DB9580223E893E000CB7AE /* Main.storyboard in Resources */,
+				1157D996227058540070A47C /* SHB_CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +783,7 @@
 				11D7300C2241439B002475A7 /* SHB_BookDetailInfoVC.m in Sources */,
 				11D7B6522240B83800B1AA19 /* NSDate+Addition.m in Sources */,
 				115EE76D223FA3BE000FC84A /* DONG_DataBaseManager.m in Sources */,
+				1157D98B2270464F0070A47C /* SHB_CommentModel.m in Sources */,
 				11270A2F223E9861001E4A64 /* NSArray+Log.m in Sources */,
 				11270A2C223E9861001E4A64 /* NSDictionary+Log.m in Sources */,
 				11E4DA25224093F100B21FA9 /* SHB_DiscoveryVC.m in Sources */,
@@ -759,6 +800,7 @@
 				11BF25852269975E003BAF5A /* SHB_BookListCell.m in Sources */,
 				1142BFAF2243DDC000AAFEC6 /* SHB_MineOtherCell.m in Sources */,
 				118282CC223FF8BB007B974B /* SHB_TabbarConfig.m in Sources */,
+				1157D987227033760070A47C /* SHB_PublicCommentVC.m in Sources */,
 				11270A43223E9DE5001E4A64 /* SHB_BaseNavigationController.m in Sources */,
 				11BF258A2269993C003BAF5A /* SHB_UserListCell.m in Sources */,
 				11270A0F223E910A001E4A64 /* UIWindow+Addition.m in Sources */,
@@ -766,6 +808,7 @@
 				11270A16223E91F1001E4A64 /* SHB_UserInfoManager.m in Sources */,
 				11270A2B223E9861001E4A64 /* NSDictionary+Addition.m in Sources */,
 				11E0FA352268C3AB000158CB /* SHB_UserListVC.m in Sources */,
+				1157D991227054950070A47C /* SHB_CommentList.m in Sources */,
 				11DB957A223E893E000CB7AE /* AppDelegate.m in Sources */,
 				11E0FA382268C3C0000158CB /* SHB_BookListVC.m in Sources */,
 				1130755022467FDA005DEA3E /* SHB_AboutVC.m in Sources */,
@@ -784,6 +827,7 @@
 				118282B2223FD5A1007B974B /* SHB_LonginVC.m in Sources */,
 				110861B922453479002ED5A9 /* SHB_MineInfoVC.m in Sources */,
 				11270A30223E9861001E4A64 /* NSData+Addition.m in Sources */,
+				1157D995227058540070A47C /* SHB_CommentCell.m in Sources */,
 				11D7300422413C97002475A7 /* SHB_HomePageCell.m in Sources */,
 				11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */,
 				11270A2E223E9861001E4A64 /* NSString+Dong.m in Sources */,

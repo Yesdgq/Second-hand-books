@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -556,14 +556,77 @@
             </objects>
             <point key="canvasLocation" x="2172" y="64.31784107946028"/>
         </scene>
+        <!--Public CommentVC-->
+        <scene sceneID="VPo-KB-mr3">
+            <objects>
+                <viewController storyboardIdentifier="SHB_PublicCommentVC" id="7yN-Wb-gdE" customClass="SHB_PublicCommentVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NBL-fa-rCn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入留言：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oJ-oF-hse">
+                                <rect key="frame" x="40" y="100" width="302" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="nAw-TC-Ad7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUZ-eU-ZH4">
+                                <rect key="frame" x="50" y="441" width="275" height="45"/>
+                                <color key="backgroundColor" red="0.1647058824" green="0.46274509800000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="4x4-js-AMU"/>
+                                </constraints>
+                                <state key="normal" title="提交留言">
+                                    <color key="titleColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitComment:" destination="7yN-Wb-gdE" eventType="touchUpInside" id="Tdm-EE-HyI"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ezJ-MI-vZc">
+                                <rect key="frame" x="40" y="131" width="295" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="c34-kX-cku"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ezJ-MI-vZc" firstAttribute="leading" secondItem="7ge-bD-u5b" secondAttribute="leading" constant="40" id="C5x-jJ-cJf"/>
+                            <constraint firstItem="7ge-bD-u5b" firstAttribute="trailing" secondItem="6oJ-oF-hse" secondAttribute="trailing" constant="33" id="FYH-7x-5N4"/>
+                            <constraint firstItem="7ge-bD-u5b" firstAttribute="trailing" secondItem="fUZ-eU-ZH4" secondAttribute="trailing" constant="50" id="G1Z-rn-GIz"/>
+                            <constraint firstItem="7ge-bD-u5b" firstAttribute="trailing" secondItem="ezJ-MI-vZc" secondAttribute="trailing" constant="40" id="Gli-Qv-LSt"/>
+                            <constraint firstItem="fUZ-eU-ZH4" firstAttribute="leading" secondItem="7ge-bD-u5b" secondAttribute="leading" constant="50" id="L6Y-Th-YB0"/>
+                            <constraint firstItem="fUZ-eU-ZH4" firstAttribute="top" secondItem="ezJ-MI-vZc" secondAttribute="bottom" constant="160" id="NUg-3a-So3"/>
+                            <constraint firstItem="fUZ-eU-ZH4" firstAttribute="centerX" secondItem="NBL-fa-rCn" secondAttribute="centerX" id="Njd-iN-tyt"/>
+                            <constraint firstItem="ezJ-MI-vZc" firstAttribute="top" secondItem="6oJ-oF-hse" secondAttribute="bottom" constant="10" id="VbR-Tw-F3f"/>
+                            <constraint firstItem="6oJ-oF-hse" firstAttribute="top" secondItem="7ge-bD-u5b" secondAttribute="top" constant="80" id="Xpn-Wn-D08"/>
+                            <constraint firstItem="6oJ-oF-hse" firstAttribute="leading" secondItem="7ge-bD-u5b" secondAttribute="leading" constant="40" id="ZXg-bk-hPg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ge-bD-u5b"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTV" destination="ezJ-MI-vZc" id="WOf-CP-w95"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XiN-Nf-OnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844" y="64"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Account" width="20" height="20"/>
         <image name="LoginBg" width="375" height="73"/>
-        <image name="Logo" width="512" height="512"/>
-        <image name="MobilePhone" width="40" height="40"/>
-        <image name="NickName" width="40" height="40"/>
+        <image name="Logo" width="256" height="256"/>
+        <image name="MobilePhone" width="20" height="20"/>
+        <image name="NickName" width="20" height="20"/>
         <image name="Password" width="20" height="20"/>
-        <image name="UploadPicture" width="500" height="500"/>
+        <image name="UploadPicture" width="250" height="250"/>
     </resources>
 </document>

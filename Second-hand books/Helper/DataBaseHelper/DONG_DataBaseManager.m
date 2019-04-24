@@ -485,4 +485,90 @@
     return dataArray;
 }
 
+
+/****************************************** 用户留言留言 *******************************************/
+
+- (void)createCommentListTable {
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        // 初始化数据表
+        NSString *userList = @"CREATE TABLE 'commentListTable' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'content' VARCHAR(255), 'creatTime' VARCHAR(255), 'userId' INTEGER)";
+        
+        BOOL res = [db executeUpdate:userList];
+        if (res) {
+            DONG_Log(@"commentListTable表创建成功");
+        } else {
+            DONG_Log(@"commentListTable表创建失败");
+        }
+    }];
+}
+
+- (BOOL)insertComment:(SHB_CommentModel *)commentModel userId:(NSString *)userId {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSNumber *maxID = @(0);
+        FMResultSet *result = [db executeQuery:@"SELECT * FROM commentListTable"];
+        // 获取数据库中最大的ID 自增字段
+        while ([result next]) {
+            if ([maxID integerValue] < [[result stringForColumn:@"id"] integerValue]) {
+                maxID = @([[result stringForColumn:@"id"] integerValue] ) ;
+            }
+        }
+        maxID = @([maxID integerValue] + 1);
+        
+        // 格林尼治时间
+        NSDate *date = [NSDate date];
+        // 格式化日期格式
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        // 设置显示的格式
+        [formatter setDateFormat:@"YYYY.MM.dd HH:mm:ss"];
+        NSString *timeStr = [formatter stringFromDate:date];
+        
+        isSuccess = [db executeUpdate:@"INSERT INTO commentListTable (id, content, creatTime, userId) VALUES(?,?,?,?)", maxID, commentModel.content, timeStr, userId];
+    }];
+    
+    if (isSuccess) {
+        DONG_Log(@"评论成功：%@", commentModel.content);
+    } else {
+        DONG_Log(@"评论失败：%@", commentModel.content);
+    }
+    
+    [_dataBase close];
+    return isSuccess;
+}
+
+- (BOOL)deleteCommentWithCommentModel:(SHB_CommentModel *)commentModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        isSuccess =  [db executeUpdate:@"DELETE FROM commentListTable WHERE id = ?", commentModel.Id];
+    }];
+    if (isSuccess) {
+        DONG_Log(@"评论删除成功：%@", commentModel.Id);
+    } else {
+        DONG_Log(@"评论删除失败：%@", commentModel.Id);
+    }
+    
+    return isSuccess;
+}
+
+- (NSArray <SHB_CommentModel *>*)queryAllComments {
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *res = [db executeQuery:@"SELECT * FROM commentListTable, userList WHERE commentListTable.userId = userList.id "];
+        while ([res next]) {
+            SHB_CommentModel *commentModel  = [[SHB_CommentModel alloc] init];
+            commentModel.Id           = [res stringForColumn:@"id"];
+            commentModel.content         = [res stringForColumn:@"content"];
+            commentModel.creatTime           = [res stringForColumn:@"creatTime"];
+            commentModel.customerNickName            = [res stringForColumn:@"nickName"];
+            commentModel.customerId     = [res stringForColumn:@"userId"];
+            
+            
+            [dataArray addObject:commentModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
 @end

@@ -19,6 +19,7 @@
 #import "FMDatabase.h"
 #import "SHB_GoodsModel.h"
 #import "SHB_UserModel.h"
+#import "SHB_CommentModel.h"
 
 
 #define DataBaseManager [DONG_DataBaseManager sharedManager]
@@ -152,5 +153,34 @@
  *  @return BOOL
  */
 - (NSArray <SHB_GoodsModel *>*)queryBooksBoughtWithUser:(SHB_UserModel *)userModel;
+
+
+/****************************************** 用户留言 *******************************************/
+
+/**
+ *  创建评论表
+ *
+ */
+- (void)createCommentListTable;
+
+/**
+ *  插入评论
+ *
+ *  @return BOOL
+ */
+- (BOOL)insertComment:(SHB_CommentModel *)commentModel userId:(NSString *)userId;
+
+/**
+ *  删除
+ *
+ */
+- (BOOL)deleteCommentWithCommentModel:(SHB_CommentModel *)commentModel;
+
+/**
+ *  查询评论
+ *
+ *  @return BOOL
+ */
+- (NSArray <SHB_CommentModel *>*)queryAllComments;
 
 @end

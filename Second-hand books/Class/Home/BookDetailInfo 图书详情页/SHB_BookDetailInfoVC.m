@@ -150,8 +150,8 @@ static const CGFloat kContentIndent = 0.f;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 取消选中
     
-    SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
-    [self.navigationController pushViewController:bookInfoVC animated:YES];
+//    SHB_BookDetailInfoVC *bookInfoVC = [[SHB_BookDetailInfoVC alloc] init];
+//    [self.navigationController pushViewController:bookInfoVC animated:YES];
 }
 
 # pragma mark- UIScrollViewDelegate

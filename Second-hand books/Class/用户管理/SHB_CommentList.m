@@ -1,39 +1,35 @@
 //
-//  SHB_BookListVC.m
+//  SHB_CommentList.m
 //  Second-hand books
 //
-//  Created by yesdgq on 2019/4/18.
+//  Created by yesdgq on 2019/4/24.
 //  Copyright © 2019 Yufei_Li. All rights reserved.
 //
 
-#import "SHB_BookListVC.h"
+#import "SHB_CommentList.h"
 #import "SHB_LonginVC.h"
 #import "SHB_BaseNavigationController.h"
-#import "SHB_BookListCell.h"
+#import "SHB_CommentCell.h"
+#import "SHB_CommentModel.h"
 
-@interface SHB_BookListVC () <UITableViewDelegate, UITableViewDataSource>
+@interface SHB_CommentList () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UITableView *tableView;   // 表单
 
 @end
 
-@implementation SHB_BookListVC
+@implementation SHB_CommentList
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"图书管理";
+    self.navigationItem.title = @"留言管理";
     self.view.backgroundColor = [UIColor colorWithHex:@"#F0F0F6"];
     [self addBarItems];
     
-    self.dataArray = [NSMutableArray arrayWithArray:[DataBaseManager queryAllBooks]];
+    self.dataArray = [NSMutableArray arrayWithArray:[DataBaseManager queryAllComments]];
     [self addSubviews];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
 }
 
 - (void)addBarItems {
@@ -102,9 +98,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SHB_BookListCell *cell = [SHB_BookListCell cellWithTableView:tableView];
-    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
-    cell.goodsModel = goodsModel;
+    SHB_CommentCell *cell = [SHB_CommentCell cellWithTableView:tableView];
+    SHB_CommentModel *commentModel = self.dataArray[indexPath.row];
+    cell.commentModel = commentModel;
     
     return cell;
     
@@ -114,7 +110,6 @@
 
 // 行高是多少
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 105;
 }
 
@@ -122,58 +117,25 @@
     return 10;
 }
 
-//// 将delete改为删除
-//- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return @"删除";
-//}
-//
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        // 1.把model相应的数据删掉
-//        [self.dataArray removeObjectAtIndex:indexPath.row];
-//        // 2.把view相应的cell删掉
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//
-//        [DataBaseManager deleteGoodsWithGoodsModel:goodsModel];
-//    }
-//}
+// 将delete改为删除
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
 
-- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewRowAction *action0 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    SHB_CommentModel *commentModel = self.dataArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
         // 1.把model相应的数据删掉
-        SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
         [self.dataArray removeObjectAtIndex:indexPath.row];
         // 2.把view相应的cell删掉
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        [DataBaseManager deleteGoodsWithGoodsModel:goodsModel];
-        [tableView setEditing:NO animated:YES];
-    }];
-    action0.backgroundColor = [UIColor redColor];
-    
-    UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"上架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
-        goodsModel.onShelf = YES;
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [DataBaseManager updateBook:goodsModel];
-        [tableView setEditing:NO animated:YES];
-    }];
-    action1.backgroundColor = [UIColor greenColor];
-    
-    UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"下架" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-        SHB_GoodsModel *goodsModel = self.dataArray[indexPath.row];
-        goodsModel.onShelf = NO;
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [DataBaseManager updateBook:goodsModel];
-        [tableView setEditing:NO animated:YES];
-        
-    }];
-    
-    action2.backgroundColor = [UIColor blueColor];
-    return @[action0, action1, action2];
+
+        [DataBaseManager deleteCommentWithCommentModel:commentModel];
+    }
 }
+
+
+
+
 
 @end

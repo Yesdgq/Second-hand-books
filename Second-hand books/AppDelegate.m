@@ -34,6 +34,7 @@
     [DataBaseManager createUserTable];
     [DataBaseManager createBooksTable];
     [DataBaseManager createBooksBuyingTable];
+    [DataBaseManager createCommentListTable];
     
     return YES;
 }

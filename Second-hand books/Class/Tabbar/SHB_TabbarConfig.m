@@ -14,6 +14,8 @@
 #import "SHB_BaseNavigationController.h"
 #import "SHB_BookListVC.h"
 #import "SHB_UserListVC.h"
+#import "SHB_PublicCommentVC.h"
+#import "SHB_CommentList.h"
 
 static CGFloat const CYLTabBarControllerHeight = 49;
 
@@ -57,8 +59,10 @@ static CGFloat const CYLTabBarControllerHeight = 49;
         UIViewController *vc1 = [[SHB_BaseNavigationController alloc] initWithRootViewController:userListVC];
         SHB_BookListVC *bookListVC = [[SHB_BookListVC alloc] init];
         UIViewController *vc2 = [[SHB_BaseNavigationController alloc] initWithRootViewController:bookListVC];
+        SHB_CommentList *CommentListVC = [[SHB_CommentList alloc] init];
+        UIViewController *vc3 = [[SHB_BaseNavigationController alloc] initWithRootViewController:CommentListVC];
         
-        NSArray *viewControllers = @[vc1, vc2];
+        NSArray *viewControllers = @[vc1, vc2, vc3];
         return viewControllers;
         
     } else {
@@ -67,8 +71,8 @@ static CGFloat const CYLTabBarControllerHeight = 49;
         UIViewController *vc1 = [[SHB_BaseNavigationController alloc] initWithRootViewController:homePageVC];
         SHB_MyGoodsVC *goodsVC = [[SHB_MyGoodsVC alloc] init];
         UIViewController *vc2 = [[SHB_BaseNavigationController alloc] initWithRootViewController:goodsVC];
-        SHB_DiscoveryVC *discoveryVC = [[SHB_DiscoveryVC alloc] init];
-        UIViewController *vc3 = [[SHB_BaseNavigationController alloc] initWithRootViewController:discoveryVC];
+        SHB_PublicCommentVC *commentVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SHB_PublicCommentVC"];
+        UIViewController *vc3 = [[SHB_BaseNavigationController alloc] initWithRootViewController:commentVC];
         SHB_MineVC *mineVC = [[SHB_MineVC alloc] init];
         UIViewController *vc4 = [[SHB_BaseNavigationController alloc] initWithRootViewController:mineVC];
         
@@ -92,8 +96,13 @@ static CGFloat const CYLTabBarControllerHeight = 49;
                                 CYLTabBarItemImage : @"Goods",
                                 CYLTabBarItemSelectedImage : @"Goods_Selected",
                                 };
+        NSDictionary *dict3 = @{
+                                CYLTabBarItemTitle : @"留言管理",
+                                CYLTabBarItemImage : @"CommentIcon",
+                                CYLTabBarItemSelectedImage : @"CommentIcon_Selected",
+                                };
         
-        NSArray *tabBarItemsAttributes = @[dict1, dict2];
+        NSArray *tabBarItemsAttributes = @[dict1, dict2, dict3];
         return tabBarItemsAttributes;
         
     } else {
@@ -109,9 +118,9 @@ static CGFloat const CYLTabBarControllerHeight = 49;
                                 CYLTabBarItemSelectedImage : @"Goods_Selected",
                                 };
         NSDictionary *dict3 = @{
-                                CYLTabBarItemTitle : @"我的购买",
-                                CYLTabBarItemImage : @"Discovery",
-                                CYLTabBarItemSelectedImage : @"Discovery_Selected",
+                                CYLTabBarItemTitle : @"发布留言",
+                                CYLTabBarItemImage : @"CommentIcon",
+                                CYLTabBarItemSelectedImage : @"CommentIcon_Selected",
                                 };
         NSDictionary *dict4 = @{
                                 CYLTabBarItemTitle : @"我的",
