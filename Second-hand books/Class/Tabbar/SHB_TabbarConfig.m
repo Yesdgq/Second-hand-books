@@ -16,6 +16,7 @@
 #import "SHB_UserListVC.h"
 #import "SHB_PublicCommentVC.h"
 #import "SHB_CommentList.h"
+#import "SHB_PublishNoticeVC.h"
 
 static CGFloat const CYLTabBarControllerHeight = 49;
 
@@ -61,8 +62,10 @@ static CGFloat const CYLTabBarControllerHeight = 49;
         UIViewController *vc2 = [[SHB_BaseNavigationController alloc] initWithRootViewController:bookListVC];
         SHB_CommentList *CommentListVC = [[SHB_CommentList alloc] init];
         UIViewController *vc3 = [[SHB_BaseNavigationController alloc] initWithRootViewController:CommentListVC];
+        SHB_PublishNoticeVC *noticeVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SHB_PublishNoticeVC"];
+        UIViewController *vc4 = [[SHB_BaseNavigationController alloc] initWithRootViewController:noticeVC];
         
-        NSArray *viewControllers = @[vc1, vc2, vc3];
+        NSArray *viewControllers = @[vc1, vc2, vc3, vc4];
         return viewControllers;
         
     } else {
@@ -101,8 +104,12 @@ static CGFloat const CYLTabBarControllerHeight = 49;
                                 CYLTabBarItemImage : @"CommentIcon",
                                 CYLTabBarItemSelectedImage : @"CommentIcon_Selected",
                                 };
-        
-        NSArray *tabBarItemsAttributes = @[dict1, dict2, dict3];
+        NSDictionary *dict4 = @{
+                                CYLTabBarItemTitle : @"发布公告",
+                                CYLTabBarItemImage : @"Notice",
+                                CYLTabBarItemSelectedImage : @"Notice_Selected",
+                                };
+        NSArray *tabBarItemsAttributes = @[dict1, dict2, dict3, dict4];
         return tabBarItemsAttributes;
         
     } else {

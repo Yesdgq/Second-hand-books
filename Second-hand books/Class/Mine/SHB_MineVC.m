@@ -16,6 +16,7 @@
 #import "SHB_UserModel.h"
 #import "SHB_DiscoveryVC.h"
 #import "SHB_MyGoodsVC.h"
+#import "SHB_NoticeVC.h"
 
 
 @interface SHB_MineVC () <UITableViewDelegate, UITableViewDataSource>
@@ -176,7 +177,9 @@
             [self.navigationController pushViewController:aboutVC animated:YES];
             
         } else if (indexPath.row ==1) {
-            ShowMessage(@"当前已是最新版本");
+            
+            SHB_NoticeVC *noticeVC  = [[SHB_NoticeVC alloc] init];
+            [self.navigationController pushViewController:noticeVC animated:YES];
         } 
     } else if (indexPath.section == 2) {
         

@@ -49,7 +49,7 @@
         } else if (indexPath.row == 1) {
             
             [self.leftIV setImage:[UIImage imageNamed:@"Update"]];
-            self.titleLbl.text = @"更新";
+            self.titleLbl.text = @"消息公告";
         }
         
     } else  if (indexPath.section == 2) {

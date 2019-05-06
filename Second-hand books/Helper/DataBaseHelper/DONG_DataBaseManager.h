@@ -20,6 +20,7 @@
 #import "SHB_GoodsModel.h"
 #import "SHB_UserModel.h"
 #import "SHB_CommentModel.h"
+#import "SHB_NoticeModel.h"
 
 
 #define DataBaseManager [DONG_DataBaseManager sharedManager]
@@ -182,5 +183,34 @@
  *  @return BOOL
  */
 - (NSArray <SHB_CommentModel *>*)queryAllComments;
+
+/****************************************** 用户留言 *******************************************/
+
+/**
+ *  创建通知表单
+ *
+ */
+- (void)createNoticeTable;
+
+/**
+ *  发布通知公告
+ *
+ *  @return BOOL
+ */
+- (BOOL)insertNotice:(SHB_NoticeModel *)noticeModel;
+
+/**
+ *  删除某条公告
+ *
+ */
+- (BOOL)deleteNotice:(SHB_NoticeModel *)noticeModel;
+
+/**
+ *  查看所有公告
+ *
+ *  @return BOOL
+ */
+- (NSArray <SHB_NoticeModel *>*)queryAllNotices;
+
 
 @end

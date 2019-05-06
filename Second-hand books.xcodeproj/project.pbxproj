@@ -15,6 +15,9 @@
 		110861C822453693002ED5A9 /* SHB_MineInfoSection0Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 110861C622453693002ED5A9 /* SHB_MineInfoSection0Cell.m */; };
 		110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110861C722453693002ED5A9 /* SHB_MineInfoSection0Cell.xib */; };
 		111979A22249D63E006B1F0A /* UIImage+Compress.m in Sources */ = {isa = PBXBuildFile; fileRef = 111979A12249D63E006B1F0A /* UIImage+Compress.m */; };
+		112008FA22803AB70061D48A /* SHB_NoticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008F922803AB70061D48A /* SHB_NoticeVC.m */; };
+		112008FF22803BDA0061D48A /* SHB_NoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 112008FD22803BDA0061D48A /* SHB_NoticeCell.m */; };
+		1120090022803BDA0061D48A /* SHB_NoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112008FE22803BDA0061D48A /* SHB_NoticeCell.xib */; };
 		11270A06223E908B001E4A64 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A05223E908B001E4A64 /* UIColor+Addition.m */; };
 		11270A09223E90B1001E4A64 /* FileManageCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A08223E90B1001E4A64 /* FileManageCommon.m */; };
 		11270A0C223E90CB001E4A64 /* DONG_AlertShowTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 11270A0B223E90CB001E4A64 /* DONG_AlertShowTool.m */; };
@@ -56,6 +59,8 @@
 		118282CC223FF8BB007B974B /* SHB_TabbarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 118282CB223FF8BB007B974B /* SHB_TabbarConfig.m */; };
 		118E3028224CEDBC009CB650 /* SHB_MyGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 118E3025224CEDBB009CB650 /* SHB_MyGoodsCell.m */; };
 		118E3029224CEDBC009CB650 /* SHB_MyGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118E3026224CEDBB009CB650 /* SHB_MyGoodsCell.xib */; };
+		1193AAB5227EE7E300BD152D /* SHB_PublishNoticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1193AAB4227EE7E300BD152D /* SHB_PublishNoticeVC.m */; };
+		1193AAB8227EE84B00BD152D /* SHB_NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1193AAB7227EE84B00BD152D /* SHB_NoticeModel.m */; };
 		11AC428A22492C1A00A840BB /* UIImage+IMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AC428822492C1900A840BB /* UIImage+IMB.m */; };
 		11BF25852269975E003BAF5A /* SHB_BookListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BF25832269975E003BAF5A /* SHB_BookListCell.m */; };
 		11BF25862269975E003BAF5A /* SHB_BookListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BF25842269975E003BAF5A /* SHB_BookListCell.xib */; };
@@ -90,6 +95,11 @@
 		110861C722453693002ED5A9 /* SHB_MineInfoSection0Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_MineInfoSection0Cell.xib; sourceTree = "<group>"; };
 		111979A02249D63E006B1F0A /* UIImage+Compress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compress.h"; sourceTree = "<group>"; };
 		111979A12249D63E006B1F0A /* UIImage+Compress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Compress.m"; sourceTree = "<group>"; };
+		112008F822803AB70061D48A /* SHB_NoticeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_NoticeVC.h; sourceTree = "<group>"; };
+		112008F922803AB70061D48A /* SHB_NoticeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_NoticeVC.m; sourceTree = "<group>"; };
+		112008FC22803BDA0061D48A /* SHB_NoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_NoticeCell.h; sourceTree = "<group>"; };
+		112008FD22803BDA0061D48A /* SHB_NoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_NoticeCell.m; sourceTree = "<group>"; };
+		112008FE22803BDA0061D48A /* SHB_NoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHB_NoticeCell.xib; sourceTree = "<group>"; };
 		11270A02223E8EA6001E4A64 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		11270A03223E8EF9001E4A64 /* SHB_Marco.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_Marco.h; sourceTree = "<group>"; };
 		11270A04223E908B001E4A64 /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
@@ -169,6 +179,10 @@
 		118E3025224CEDBB009CB650 /* SHB_MyGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHB_MyGoodsCell.m; sourceTree = "<group>"; };
 		118E3026224CEDBB009CB650 /* SHB_MyGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHB_MyGoodsCell.xib; sourceTree = "<group>"; };
 		118E3027224CEDBB009CB650 /* SHB_MyGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHB_MyGoodsCell.h; sourceTree = "<group>"; };
+		1193AAB3227EE7E300BD152D /* SHB_PublishNoticeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_PublishNoticeVC.h; sourceTree = "<group>"; };
+		1193AAB4227EE7E300BD152D /* SHB_PublishNoticeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_PublishNoticeVC.m; sourceTree = "<group>"; };
+		1193AAB6227EE84B00BD152D /* SHB_NoticeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_NoticeModel.h; sourceTree = "<group>"; };
+		1193AAB7227EE84B00BD152D /* SHB_NoticeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHB_NoticeModel.m; sourceTree = "<group>"; };
 		11AC428822492C1900A840BB /* UIImage+IMB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IMB.m"; sourceTree = "<group>"; };
 		11AC428922492C1900A840BB /* UIImage+IMB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IMB.h"; sourceTree = "<group>"; };
 		11BF25822269975E003BAF5A /* SHB_BookListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHB_BookListCell.h; sourceTree = "<group>"; };
@@ -247,6 +261,26 @@
 				110861C022453682002ED5A9 /* SHB_MineInfoSection2Cell.h */,
 				110861C122453682002ED5A9 /* SHB_MineInfoSection2Cell.m */,
 				110861C222453682002ED5A9 /* SHB_MineInfoSection2Cell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		112008F722803A8D0061D48A /* MyNotice */ = {
+			isa = PBXGroup;
+			children = (
+				112008F822803AB70061D48A /* SHB_NoticeVC.h */,
+				112008F922803AB70061D48A /* SHB_NoticeVC.m */,
+				112008FB22803BAB0061D48A /* View */,
+			);
+			path = MyNotice;
+			sourceTree = "<group>";
+		};
+		112008FB22803BAB0061D48A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				112008FC22803BDA0061D48A /* SHB_NoticeCell.h */,
+				112008FD22803BDA0061D48A /* SHB_NoticeCell.m */,
+				112008FE22803BDA0061D48A /* SHB_NoticeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +434,7 @@
 				118282C1223FF835007B974B /* SHB_MineVC.h */,
 				118282C2223FF835007B974B /* SHB_MineVC.m */,
 				1142BFA82243DD6A00AAFEC6 /* View */,
+				112008F722803A8D0061D48A /* MyNotice */,
 				110861B622453415002ED5A9 /* MineInfo */,
 				110861B5224533AD002ED5A9 /* About */,
 			);
@@ -484,6 +519,8 @@
 				115EE770223FA404000FC84A /* SHB_GoodsModel.m */,
 				115EE772223FA4CE000FC84A /* SHB_UserModel.h */,
 				115EE773223FA4CE000FC84A /* SHB_UserModel.m */,
+				1193AAB6227EE84B00BD152D /* SHB_NoticeModel.h */,
+				1193AAB7227EE84B00BD152D /* SHB_NoticeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -604,6 +641,8 @@
 				11E0FA372268C3C0000158CB /* SHB_BookListVC.m */,
 				1157D98F227054950070A47C /* SHB_CommentList.h */,
 				1157D990227054950070A47C /* SHB_CommentList.m */,
+				1193AAB3227EE7E300BD152D /* SHB_PublishNoticeVC.h */,
+				1193AAB4227EE7E300BD152D /* SHB_PublishNoticeVC.m */,
 				11BF258122699721003BAF5A /* View */,
 			);
 			path = "用户管理";
@@ -703,6 +742,7 @@
 				11D7300522413C97002475A7 /* SHB_HomePageCell.xib in Resources */,
 				1142BFB52243DDD300AAFEC6 /* SHB_MineInfoCell.xib in Resources */,
 				110861C922453693002ED5A9 /* SHB_MineInfoSection0Cell.xib in Resources */,
+				1120090022803BDA0061D48A /* SHB_NoticeCell.xib in Resources */,
 				1127FBF6226B6A3D0011F638 /* SHB_DiscoveryCell.xib in Resources */,
 				110861BF2245366F002ED5A9 /* SHB_MineInfoSection1Cell.xib in Resources */,
 				110861C422453682002ED5A9 /* SHB_MineInfoSection2Cell.xib in Resources */,
@@ -805,10 +845,12 @@
 				11BF258A2269993C003BAF5A /* SHB_UserListCell.m in Sources */,
 				11270A0F223E910A001E4A64 /* UIWindow+Addition.m in Sources */,
 				11270A09223E90B1001E4A64 /* FileManageCommon.m in Sources */,
+				1193AAB8227EE84B00BD152D /* SHB_NoticeModel.m in Sources */,
 				11270A16223E91F1001E4A64 /* SHB_UserInfoManager.m in Sources */,
 				11270A2B223E9861001E4A64 /* NSDictionary+Addition.m in Sources */,
 				11E0FA352268C3AB000158CB /* SHB_UserListVC.m in Sources */,
 				1157D991227054950070A47C /* SHB_CommentList.m in Sources */,
+				1193AAB5227EE7E300BD152D /* SHB_PublishNoticeVC.m in Sources */,
 				11DB957A223E893E000CB7AE /* AppDelegate.m in Sources */,
 				11E0FA382268C3C0000158CB /* SHB_BookListVC.m in Sources */,
 				1130755022467FDA005DEA3E /* SHB_AboutVC.m in Sources */,
@@ -819,6 +861,7 @@
 				110861C822453693002ED5A9 /* SHB_MineInfoSection0Cell.m in Sources */,
 				1127FBF5226B6A3D0011F638 /* SHB_DiscoveryCell.m in Sources */,
 				11270A1E223E983F001E4A64 /* UIImage+GIFImage.m in Sources */,
+				112008FF22803BDA0061D48A /* SHB_NoticeCell.m in Sources */,
 				11270A1B223E979C001E4A64 /* SHB_CoreToolCenter.m in Sources */,
 				118282C0223FF81D007B974B /* SHB_MyGoodsVC.m in Sources */,
 				110861BE2245366F002ED5A9 /* SHB_MineInfoSection1Cell.m in Sources */,
@@ -827,6 +870,7 @@
 				118282B2223FD5A1007B974B /* SHB_LonginVC.m in Sources */,
 				110861B922453479002ED5A9 /* SHB_MineInfoVC.m in Sources */,
 				11270A30223E9861001E4A64 /* NSData+Addition.m in Sources */,
+				112008FA22803AB70061D48A /* SHB_NoticeVC.m in Sources */,
 				1157D995227058540070A47C /* SHB_CommentCell.m in Sources */,
 				11D7300422413C97002475A7 /* SHB_HomePageCell.m in Sources */,
 				11E4DA2B2240945200B21FA9 /* UIViewController+Addition.m in Sources */,

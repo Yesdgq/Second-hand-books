@@ -571,4 +571,96 @@
     return dataArray;
 }
 
+
+/****************************************** 用户留言 *******************************************/
+
+/**
+ *  创建通知表单
+ *
+ */
+- (void)createNoticeTable {
+    
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        // 初始化数据表
+        NSString *userList = @"CREATE TABLE 'noticeListTable' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'title' VARCHAR(255), 'content' VARCHAR(255), 'publisher' VARCHAR(255), 'publishTime' VARCHAR(255), 'userId' INTEGER)";
+        
+        BOOL res = [db executeUpdate:userList];
+        if (res) {
+            DONG_Log(@"noticeListTable表创建成功");
+        } else {
+            DONG_Log(@"noticeListTable表创建失败");
+        }
+    }];
+}
+
+- (BOOL)insertNotice:(SHB_NoticeModel *)noticeModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSNumber *maxID = @(0);
+        FMResultSet *result = [db executeQuery:@"SELECT * FROM noticeListTable"];
+        // 获取数据库中最大的ID 自增字段
+        while ([result next]) {
+            if ([maxID integerValue] < [[result stringForColumn:@"id"] integerValue]) {
+                maxID = @([[result stringForColumn:@"id"] integerValue] ) ;
+            }
+        }
+        maxID = @([maxID integerValue] + 1);
+        
+        // 格林尼治时间
+        NSDate *date = [NSDate date];
+        // 格式化日期格式
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        // 设置显示的格式
+        [formatter setDateFormat:@"YYYY.MM.dd HH:mm:ss"];
+        NSString *timeStr = [formatter stringFromDate:date];
+        
+        isSuccess = [db executeUpdate:@"INSERT INTO noticeListTable (id, title, content, publisher, publishTime, userId) VALUES(?,?,?,?,?,?)", maxID, noticeModel.title, noticeModel.content, noticeModel.publisher, timeStr, @""];
+    }];
+    
+    if (isSuccess) {
+        DONG_Log(@"通知发布成功：%@", noticeModel.title);
+    } else {
+        DONG_Log(@"通知发布失败：%@", noticeModel.title);
+    }
+    
+    [_dataBase close];
+    return isSuccess;
+    
+}
+
+- (NSArray <SHB_NoticeModel *>*)queryAllNotices {
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *res = [db executeQuery:@"SELECT * FROM noticeListTable"];
+        while ([res next]) {
+            SHB_NoticeModel *noticeModel  = [[SHB_NoticeModel alloc] init];
+            noticeModel.id           = [res stringForColumn:@"id"];
+            noticeModel.title         = [res stringForColumn:@"title"];
+            noticeModel.content           = [res stringForColumn:@"content"];
+            noticeModel.publisher            = [res stringForColumn:@"publisher"];
+            noticeModel.publishTime     = [res stringForColumn:@"publishTime"];
+            
+            [dataArray addObject:noticeModel];
+        }
+    }];
+    
+    [_dataBase close];
+    return dataArray;
+}
+
+- (BOOL)deleteNotice:(SHB_NoticeModel *)noticeModel {
+    __block BOOL isSuccess;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        isSuccess =  [db executeUpdate:@"DELETE FROM noticeListTable WHERE id = ?", noticeModel.id];
+    }];
+    if (isSuccess) {
+        DONG_Log(@"评论删除成功：%@", noticeModel.id);
+    } else {
+        DONG_Log(@"评论删除失败：%@", noticeModel.id);
+    }
+    
+    return isSuccess;
+}
+
+
 @end
